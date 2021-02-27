@@ -1,0 +1,28 @@
+
+.quarter{
+   
+    width:25%;
+   
+    border: 10px solid rgb(211, 20, 20);
+    box-sizing: border-box;
+    position: relative;
+   
+
+   
+}
+*{
+    margin:0;
+    padding:0;
+    background-color: rgb(115, 115, 161);
+}
+.reel{
+    font-size: 4em;
+    border: 1px solid red;
+    height:100px;
+    width:2em;
+    overflow-y:scroll;
+    display:inline-block;  
+    margin: 20px;
+    
+  }
+

@@ -1,0 +1,126 @@
+* { 
+    margin: 0;
+    padding: 0;    
+    box-sizing: border-box;
+    width: 100%;
+}
+html{
+    height:100%
+}
+body{background-image:url('https://quicksnooker.com/images/sturgeonBack.jpg');    
+	background-repeat: no-repeat;
+    background-size: cover;
+    width:100%;
+   
+} 
+.middle_bar{
+    width:100%;
+    height:70px;
+    background-color: rgb(165, 165, 235);
+    position: absolute; 
+    bottom: 50px;
+    opacity: 70%;
+    font-weight: bold;   
+}
+.main{
+    line-height: 1.3em;
+    width: 100%;
+    font-family: Helvetica;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 40%;
+    animation-duration: 10s;
+}
+.main:hover {
+    font-size:28px;
+    color:lightblue;
+    animation-delay: 2s;
+    
+  }
+.top_bar{
+    width:50%;
+    height:30px;
+    background-color: rgb(146, 11, 22);
+    position: absolute; 
+    bottom: 120px;
+    color: white;
+ 
+   
+    
+}
+.bottom{
+    width:100%;
+}
+.bottom_bar1{
+    width:50%;
+    height:30px;
+    background-color:darkred;
+    position: absolute; 
+    float: left;
+    bottom: 20px;
+    color: white;
+
+}
+.bottom_bar2{
+        width:50%;
+        height:30px;
+        background-color: rgb(75, 17, 77);
+        float: right; 
+        bottom: 20px;
+        color: white;
+     
+}
+  
+p{
+   margin-left: 20%;
+    line-height: 1.3em;
+    width: 100%;
+    font-family: Helvetica;
+    font-size: 25px;
+    font-weight: bold;
+  
+
+}
+.parlament{
+    padding-left: 1em;
+    padding-right: 1em;
+   
+}
+.date{
+    background-color: black;
+    padding-left: 1em;
+    padding-right: 1em;
+   
+    
+}
+.text {
+    background-color: rgb(43, 4, 4); 
+  
+}
+.bbc1{
+    background-color:white;
+    color:red;
+    padding-left: .2em;
+    padding-right: .05em;
+    border-right-style: solid;
+    border-right-color: rgb(201, 76, 76);
+}
+.bbc2{
+    background-color:white;
+    color:red;
+    padding-left: .2em;
+    padding-right: .05em;
+    border-right-style: solid;
+    border-right-color: rgb(201, 76, 76);  
+  
+}
+   
+.bbc3{
+    background-color:white;
+    color:red;
+    padding-left: .2em;
+    padding-right: .2em;
+   
+  
+}
+

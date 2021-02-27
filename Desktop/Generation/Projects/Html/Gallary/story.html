@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Form a Story</title>
+  </head>
+  <body>
+    <section id="top">
+      <img src="https://content.codecademy.com/courses/learn-html-forms/formAStoryLogo.svg" alt="Form A Story Logo">
+    </section>
+
+    <section id="main">
+      <h1>Complete the Form -<br> Complete the Story!</h1>
+      <hr>
+      <!--Add your form below:-->
+      <lable for="animal-1">Animal:</lable>
+      <input type="text" id="animal-1" name="animal1" required> <br>
+      <lable for="animal-2">Another Animal:</lable>
+      <input type="text" id="animal-2" name="animal2" required> <br>
+      <label for="animal-3">One More Animal:</lable>
+      <input type="text" id="animal-3" name-"animal3" required> <br>
+      <label for="adj-1"> Adjective(past tense): </label>
+      <input id name ="adj-1" type="text" required> <br>
+       <label for="verb-1"> Verb(ends in -ing): </label>
+      <input id name ="verb-1" type="text" required> <br>
+      <label for="num-1">Number:</label>
+      <input id name="num-1" type="number" required> <br>
+      <span>Yes </span>
+      <input id="yes" type="radio" name="answer" value="yes" required>
+      <label for="yes"> </label>
+      <span> No</span>
+      <input id="no" type="radio" name="answer" value="no" required>
+      <label for="no"> </label> <br>
+      <label for="speed">Relative speed(ends in -er):</label>
+      <select id name="speed" required> 
+        <option value="faster">Faster</option>
+        <option value="moreFaster">More Faster</option>
+        <option value="fastest" selected>Fastest</option>
+      </select>
+         <br>
+        
+           <label for="quote">Motivational Quote:</label>
+           <input id="quote" nsme="quote" type="text" required list="quote-choices">
+        <datalist id="quote-choices">
+          <option value="winner gets ice cream">
+          <option value="First runner up gets lolly">
+          <option value="Second runner up gets nothing">
+        </datalist> <br>
+        <label for="message">Message:</label>
+        <input type="textarea" rows="10" cols="40"  required > <br>
+      <form action="story.html" method="GET">
+        <input type="submit" value="Form My story!" >
+      </form>
+    </section>
+  </body>
+</html>
