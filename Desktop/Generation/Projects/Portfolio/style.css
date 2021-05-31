@@ -1,5 +1,8 @@
+body{
+    background-color: #bb9093
+}
 h1{
-    Color: orange;
+    Color: rgb(204, 218, 21);
 }
 li{
     color: blue;
