@@ -25,6 +25,39 @@ const outputResponse = (req, res, next) => {
   res.json(res.result)
 };
 
+const getRandomNumber = (max) =>{
+  Math.floor(Math.random()*max)
+}
+
+const returnedLetters = 
+
+for (let index = 0; index < numLetters; index++) {
+  getRandomNumber(100)
+  
+}
+
+
+
+()-[A, E, I, O, U, L, N, S, T, R]
+()-[D, G]
+()-[B, C, M, P]
+()-[F, H, V, W, Y]
+()-[K]
+()-[J, X]
+()-[Q, Z]
+
+10	30
+8	24
+5	15
+4	12
+3	9
+2	6
+1	3
+
+
+
+
+
 //http://localhost:3000/api/dict/<word>
 //response 
 /* 
