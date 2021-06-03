@@ -15,21 +15,16 @@ const connect = async () => {
 
 const checkWord = async (req, res, next) => {
   const word = req.params.word;
-  let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
+  let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`)
+
   res.result = await response.json();
   next();
 };
 
-const outputResult = (req, res, next) => {
-  console.log(res.result);
+const outputResponse = (req, res, next) => {
+  res.json(res.result)
 };
 
-app.get("/api/:word", checkWord, outputResult);
+app.get("/api/dict/:word", checkWord, outputResponse);
 
 connect();
