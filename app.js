@@ -27,20 +27,26 @@ const outputResponse = (req, res, next) => {
 
 //http://localhost:3000/api/dict/<word>
 //response 
-/* [Object{"word":String("forward"),
-"phonetics":Array[
-  Object{"text":String("/ˈfɔːwəd/"),"audio":String("https://lex-audio.useremarkable.com/mp3/forward_gb_1.mp3")
-}],
-"meanings":Array[
-  Object{"partOfSpeech":String("verb")
-  ,
-"definitions":Array[
-  Object{"definition":String("Send (a letter or email) on to a further destination.")
-  ,
-"synonyms":Array[
-  String("send on",)
-]
-"example":String:("my emails were forwarded to a friend")}] */
+/* 
+[Object{
+  "word":String("forward"),
+  "phonetics":Array[
+                    Object{
+                      "text":String("/ˈfɔːwəd/"),
+                      "audio":String("https://lex-audio.useremarkable.com/mp3/forward_gb_1.mp3")
+                          }
+                    ],
+  "meanings":Array[
+                  Object{
+                    "partOfSpeech":String("verb")
+  "definitions":Array[
+                  Object{
+                    "definition":String("Send (a letter or email) on to a further destination.")
+                    "synonyms":Array[
+                                    String("send on",)
+                                  ]
+  "example":String:("my emails were forwarded to a friend")
+}] */
 app.get("/api/dict/:word", checkWord, outputResponse);
 
 connect();
