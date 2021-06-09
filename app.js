@@ -13,11 +13,45 @@ const connect = async () => {
   app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 };
 
+// (1 point)-A, E, I, O, U, L, N, S, T, R
+// (2 points)-D, G
+// (3 points)-B, C, M, P
+// (4 points)-F, H, V, W, Y
+// (5 points)-K
+// (8 points)- J, X
+// (10 points)-Q, Z
+
+const calculateScore = (word) => {
+  let total = 0
+  for (let index = 0; index < word.length; index++) {
+    const letter = word[index].toUpperCase();
+    if (["A", "E", "I", "O", "U", "L", "N", "S", "T", "R"].includes(letter)) total += 1
+    else if (["D", "G"].includes(letter)) total += 2
+    else if (["B", "C", "M", "P"].includes(letter)) total += 3
+    else if (["F", "H", "V", "W", "Y"].includes(letter)) total += 4
+    else if (["K"].includes(letter)) total += 5
+    else if (["J", "X"].includes(letter)) total += 8
+    else total += 10
+  }
+
+  return total
+}
+
 const checkWord = async (req, res, next) => {
   const word = req.params.word;
   let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
 
   res.result = await response.json();
+
+  if (res.result.title) {
+    res.result.score = 0
+    res.result.match = false
+  }
+  else {
+    res.result = res.result[0]
+    res.result.score = calculateScore(word)
+    res.result.match = true
+  }
   next();
 };
 
@@ -91,3 +125,6 @@ app.get("/api/dict/:word", checkWord, outputResponse);
 app.get("/api/rndletters/:size", generateLetters, outputResponse);
 
 connect();
+
+
+
