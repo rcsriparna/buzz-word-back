@@ -41,10 +41,21 @@ const calculateScore = (word) => {
   return total
 }
 
+const assembleWord = (letters) => {
+  let word = ""
+  for (const key in letters) {
+      const element = letters[key];
+      word+=element  
+      letters[key] = getLetter(getRandomNumber(100))
+    }
+    return word
+  }
+
 //custom middleware handling 'word checking' in external API
 
 const checkWord = async (req, res, next) => {
-  const word = req.params.word;
+  const letters = req.params.body.letters;
+  const word = assembleWord(letters)
   let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
 
   res.result = await response.json();
@@ -57,6 +68,7 @@ const checkWord = async (req, res, next) => {
     res.result = res.result[0]
     res.result.score = calculateScore(word)
     res.result.match = true
+    res.result.letters = letters
   }
   next();
 };
@@ -111,11 +123,12 @@ const generateLetters = (req, res, next) => {
 };
 
 //two end points handling get requests for API
-app.get("/api/dict/:word", checkWord, outputResponse);
+app.post("/api/dict/", checkWord, outputResponse);
 app.get("/api/rndletters/:size", generateLetters, outputResponse);
 
 //entry point - initiates application
 connect();
+
 
 
 
