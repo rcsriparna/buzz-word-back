@@ -1,14 +1,16 @@
-const express = require("express");
-const cors = require("cors");
-const fetch = require("node-fetch");
-const app = express();
+const express = require("express"); //import express dependency serves as web server
+const cors = require("cors"); //import cors, middleware for express, cross origin resource sharing
+const fetch = require("node-fetch"); //access to 'fetch'
+const app = express(); //create instance of server
 
-const PORT = 3000;
+const PORT = 3000; //const for port number
 
+//configures middleware for server
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname));
 
+//runs server
 const connect = async () => {
   app.listen(PORT, () => console.log(`Server is running on ${PORT}`));
 };
@@ -20,6 +22,8 @@ const connect = async () => {
 // (5 points)-K
 // (8 points)- J, X
 // (10 points)-Q, Z
+
+//helper function calculating total score based on preset scoring system
 
 const calculateScore = (word) => {
   let total = 0
@@ -36,6 +40,8 @@ const calculateScore = (word) => {
 
   return total
 }
+
+//custom middleware handling 'word checking' in external API
 
 const checkWord = async (req, res, next) => {
   const word = req.params.word;
@@ -55,12 +61,16 @@ const checkWord = async (req, res, next) => {
   next();
 };
 
+//middleware handler - responsible for returning response as JSON
 const outputResponse = (req, res, next) => {
   res.json(res.result);
 };
 
+//helper function returning random number within given range
 const getRandomNumber = (max) => Math.floor(Math.random() * max);
 
+//helper function to return random selected letters based on the probability system
+//http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
 const getLetter = (perc) => {
   if (perc <= 12.02) return "E";
   else if (perc > 12.02 && perc <= 21.12) return "T";
@@ -90,6 +100,7 @@ const getLetter = (perc) => {
   else return "Z";
 };
 
+//custom middleware handler for generating random letters
 const generateLetters = (req, res, next) => {
   const letters = [];
   for (let i = 0; i < req.params.size; i++) {
@@ -99,31 +110,11 @@ const generateLetters = (req, res, next) => {
   next();
 };
 
-//http://localhost:3000/api/dict/<word>
-//response
-/* 
-[Object{
-  "word":String("forward"),
-  "phonetics":Array[
-                    Object{
-                      "text":String("/ˈfɔːwəd/"),
-                      "audio":String("https://lex-audio.useremarkable.com/mp3/forward_gb_1.mp3")
-                          }
-                    ],
-  "meanings":Array[
-                  Object{
-                    "partOfSpeech":String("verb")
-  "definitions":Array[
-                  Object{
-                    "definition":String("Send (a letter or email) on to a further destination.")
-                    "synonyms":Array[
-                                    String("send on",)
-                                  ]
-  "example":String:("my emails were forwarded to a friend")
-}] */
+//two end points handling get requests for API
 app.get("/api/dict/:word", checkWord, outputResponse);
 app.get("/api/rndletters/:size", generateLetters, outputResponse);
 
+//entry point - initiates application
 connect();
 
 
