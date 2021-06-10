@@ -1,0 +1,9 @@
+###
+POST http://localhost:3000/api/dict
+content-type: application/json
+
+{
+    "letters": {"c0":"D","c1":"E","c2":"N"}
+}
+
+###

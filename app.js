@@ -54,7 +54,7 @@ const assembleWord = (letters) => {
 //custom middleware handling 'word checking' in external API
 
 const checkWord = async (req, res, next) => {
-  const letters = req.params.body.letters;
+  const letters = req.body.letters;
   const word = assembleWord(letters)
   let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
 
@@ -123,7 +123,7 @@ const generateLetters = (req, res, next) => {
 };
 
 //two end points handling get requests for API
-app.post("/api/dict/", checkWord, outputResponse);
+app.post("/api/dict", checkWord, outputResponse);
 app.get("/api/rndletters/:size", generateLetters, outputResponse);
 
 //entry point - initiates application
