@@ -63,32 +63,14 @@ class GameState {
   getLetter = (perc) => {
     //helper function to return random selected letters based on the probability system
     //http://pi.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html
-    if (perc <= 12.02) return "E";
-    else if (perc > 12.02 && perc <= 21.12) return "T";
-    else if (perc > 21.12 && perc <= 29.24) return "A";
-    else if (perc > 29.24 && perc <= 36.92) return "O";
-    else if (perc > 36.92 && perc <= 44.23) return "I";
-    else if (perc > 44.23 && perc <= 51.18) return "N";
-    else if (perc > 51.18 && perc <= 57.46) return "S";
-    else if (perc > 57.46 && perc <= 63.48) return "R";
-    else if (perc > 63.48 && perc <= 69.4) return "H";
-    else if (perc > 69.4 && perc <= 73.72) return "D";
-    else if (perc > 73.72 && perc <= 77.7) return "L";
-    else if (perc > 77.7 && perc <= 80.58) return "U";
-    else if (perc > 80.58 && perc <= 83.29) return "C";
-    else if (perc > 83.29 && perc <= 85.9) return "M";
-    else if (perc > 85.9 && perc <= 88.2) return "F";
-    else if (perc > 88.2 && perc <= 90.31) return "Y";
-    else if (perc > 90.31 && perc <= 92.4) return "W";
-    else if (perc > 92.4 && perc <= 94.43) return "G";
-    else if (perc > 94.43 && perc <= 96.25) return "P";
-    else if (perc > 96.25 && perc <= 97.74) return "B";
-    else if (perc > 97.74 && perc <= 98.85) return "V";
-    else if (perc > 98.85 && perc <= 99.54) return "K";
-    else if (perc > 99.54 && perc <= 99.71) return "X";
-    else if (perc > 99.71 && perc <= 99.82) return "Q";
-    else if (perc > 99.82 && perc <= 99.92) return "J";
-    else return "Z";
+    const thresholds = [
+      0, 12.02, 21.12, 29.24, 36.92, 44.23, 51.18, 57.46, 63.48, 69.4, 73.72, 77.7, 80.58, 83.29, 85.9, 88.2, 90.31,
+      92.4, 94.43, 96.25, 97.74, 98.85, 99.54, 99.71, 99.82, 99.92, 100.0,
+    ];
+    const letters = "ETAOINSRHDLUCMFYWGPBVKXQJZ";
+    for (const [i, l] of letters.split("").entries()) {
+      if (perc > thresholds[i] && perc <= thresholds[i + 1]) return letters[i];
+    }
   };
 
   generateLetters = (size) => {
@@ -100,7 +82,7 @@ class GameState {
   };
 
   //helper function returning random number within given range
-  getRandomNumber = (max) => Math.floor(Math.random() * max);
+  getRandomNumber = (max) => Math.random() * max;
 
   addPlayer = (name) => this.playerList.push(new Player(name));
 
