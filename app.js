@@ -2,7 +2,7 @@ const express = require("express"); //import express dependency serves as web se
 const cors = require("cors"); //import cors, middleware for express, cross origin resource sharing
 const fetch = require("node-fetch"); //access to 'fetch'
 const app = express(); //create instance of server
-const Player = require("./player/player")
+const GameState = require("./game/game")
 const PORT = 3000; //const for port number
 
 //configures middleware for server
@@ -129,10 +129,15 @@ app.get("/api/rndletters/:size", generateLetters, outputResponse);
 //entry point - initiates application
 connect();
 
-const playerList=[]
-playerList.push(new Player('name1')) 
-playerList.push(new Player('name2')) 
-playerList.push(new Player('name3')) 
+const game = new GameState()
+game.addPlayer('name1')
+game.addPlayer('name2')
+game.addPlayer('name3')
+game.playerList[0].score = 10
+game.playerList[1].score = 5
+game.playerList[2].score = 0
 
 
-console.log (playerList)
+console.log (game)
+
+console.log(game.getTopPlayer())
