@@ -2,7 +2,7 @@ const express = require("express"); //import express dependency serves as web se
 const cors = require("cors"); //import cors, middleware for express, cross origin resource sharing
 const fetch = require("node-fetch"); //access to 'fetch'
 const app = express(); //create instance of server
-import {Player} from "./player/player";
+const Player = require("./player/player")
 const PORT = 3000; //const for port number
 
 //configures middleware for server
@@ -129,6 +129,10 @@ app.get("/api/rndletters/:size", generateLetters, outputResponse);
 //entry point - initiates application
 connect();
 
-const player = new Player('name')
+const playerList=[]
+playerList.push(new Player('name1')) 
+playerList.push(new Player('name2')) 
+playerList.push(new Player('name3')) 
 
-console.log (player)
+
+console.log (playerList)
