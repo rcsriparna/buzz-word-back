@@ -7,3 +7,11 @@ content-type: application/json
 }
 
 ###
+POST http://localhost:3000/api/dict
+content-type: application/json
+
+{
+    "letters": {"c0":"D","c1":"D","c2":"D"}
+}
+
+###

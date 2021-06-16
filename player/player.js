@@ -1,8 +1,8 @@
 class Player {
-    constructor(name){
+    constructor(name, cookie=""){
         this.name = name
         this.score = 0
-        this.cookie = ""
+        this.cookie = cookie
     }
 }
 module.exports = Player
