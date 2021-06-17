@@ -84,7 +84,7 @@ class GameState {
   //helper function returning random number within given range
   getRandomNumber = (max) => Math.random() * max;
 
-  addPlayer = (name) => this.playerList.push(new Player(name));
+  addPlayer = (name) => this.playerList.push(Player(name));
 
   get topPlayer() {
     return this.playerList.reduce((prev, current) => (prev.score > current.score ? prev : current));
