@@ -11,7 +11,7 @@ const fetch = require("node-fetch"); //access to 'fetch'
 
 class GameState {
   constructor() {
-    this.playerList = [];
+    this._playersList = [];
     this.letters = "abcdefg";
   }
 
@@ -84,10 +84,15 @@ class GameState {
   //helper function returning random number within given range
   getRandomNumber = (max) => Math.random() * max;
 
-  addPlayer = (name) => this.playerList.push(Player(name));
+  addPlayer = (name) => this._playersList.push(Player(name));
 
   get topPlayer() {
-    return this.playerList.reduce((prev, current) => (prev.score > current.score ? prev : current));
+    return this._playersList.reduce((prev, current) => (prev.score > current.score ? prev : current));
+  }
+  get playersList(){
+    return this._playersList
   }
 }
+
+
 module.exports = GameState;
