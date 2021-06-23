@@ -3,16 +3,21 @@ const cors = require("cors"); //import cors, middleware for express, cross origi
 const mongoose = require("mongoose");
 const app = express(); //create instance of server
 const GameState = require("./game/game");
+const logging = require("./logger/logging");
 const PlayerSchema = require("./models/player");
 const PORT = 3000; //const for port number
 
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 
-app.use(session({
-  secret: 'foo',
-  store: MongoStore.create({mongoUrl: 'mongodb://localhost/buzz-session'})
-}));
+const NAMESPACE = "APP";
+
+app.use(
+  session({
+    secret: "foo",
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost/buzz-session" }),
+  })
+);
 
 //configures middleware for server
 app.use(express.json());
@@ -46,7 +51,7 @@ const connect = async () => {
   mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
   const db = mongoose.connection;
   db.on("error", (err) => error("Connection error: " + err));
-  db.once("open", () => app.listen(PORT, () => console.log(`Server is running on ${PORT}`)));  //we defer the normal "app.listen() - until the database has started up (bad things would happen if we started accepting requests before the database was running)"
+  db.once("open", () => app.listen(PORT, () => console.log(`Server is running on ${PORT}`))); //we defer the normal "app.listen() - until the database has started up (bad things would happen if we started accepting requests before the database was running)"
 };
 
 //entry point - initiates application
@@ -59,9 +64,13 @@ game.addPlayer("name3");
 
 console.log(game);
 
-console.log(game.topPlayer)
-console.log(game.playersList)
-;
+console.log(game.topPlayer);
+console.log(game.playersList);
 
-const ply = new PlayerSchema({name: "One", score: 5, cookie: "abcd"})
-ply.save()
+const ply = new PlayerSchema({ name: "One", score: 5, cookie: "abcd" });
+ply.save();
+
+logging.info(NAMESPACE, "Welcome to LOG",game);
+logging.error(NAMESPACE, "Welcome to LOG");
+logging.debug(NAMESPACE, "Welcome to LOG");
+logging.warn(NAMESPACE, "Welcome to LOG");
