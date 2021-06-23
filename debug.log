@@ -1,0 +1,23 @@
+[2021-06-23T19:25:25.088Z] [INFO] [APP] Welcome to LOG{
+  "_playersList": [
+    {
+      "name": "name1",
+      "cookie": "",
+      "score": 0
+    },
+    {
+      "name": "name2",
+      "cookie": "",
+      "score": 0
+    },
+    {
+      "name": "name3",
+      "cookie": "",
+      "score": 0
+    }
+  ],
+  "letters": "abcdefg"
+}
+[2021-06-23T19:25:25.090Z] [ERROR] [APP] Welcome to LOG{}
+[2021-06-23T19:25:25.091Z] [DEBUG] [APP] Welcome to LOG{}
+[2021-06-23T19:25:25.092Z] [WARN] [APP] Welcome to LOG{}

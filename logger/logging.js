@@ -1,9 +1,9 @@
 const fs = require("fs");
-// const resolve = require("resolve");
+const path = require("path");
 
 const getTimeStamp = () => new Date().toISOString();
 
-const log_file = fs.createWriteStream("../debug.log", { flags: "w" });
+const log_file = fs.createWriteStream(path.resolve(__dirname, "../debug.log"), { flags: "w" });
 
 const log = (type, namespace, message, object = {}) => {
   let msg = `[${getTimeStamp()}] [${type}] [${namespace}] ${message}`;
