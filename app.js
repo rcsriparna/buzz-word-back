@@ -42,10 +42,9 @@ const game = new GameState();
 game.addPlayer("name1");
 game.addPlayer("name2");
 game.addPlayer("name3");
-game.playerList[0].score = 10;
-game.playerList[1].score = 5;
-game.playerList[2].score = 0;
 
 console.log(game);
 
-console.log(game.generateLetters(50));
+console.log(game.topPlayer)
+console.log(game.playersList)
+;
