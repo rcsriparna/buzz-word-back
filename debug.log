@@ -1,9 +1,361 @@
-[2021-06-24T19:25:13.509Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
-[2021-06-24T19:25:13.512Z] [INFO] [APP] Server is running on: http://localhost:3000
-[2021-06-24T19:25:13.512Z] [INFO] [APP] Server API: http://localhost:3000/api
-[2021-06-24T19:25:13.512Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T19:25:13.513Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T19:25:13.513Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
-[2021-06-24T19:25:13.513Z] [INFO] [APP] Server AUTH: http://localhost:3000/
-[2021-06-24T19:25:13.514Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T19:25:13.514Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null
+[2021-06-24T19:44:29.068Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
+[2021-06-24T19:44:29.071Z] [INFO] [APP] Server is running on: http://localhost:3000
+[2021-06-24T19:44:29.071Z] [INFO] [APP] Server API: http://localhost:3000/api
+[2021-06-24T19:44:29.071Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:44:29.072Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:44:29.072Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
+[2021-06-24T19:44:29.072Z] [INFO] [APP] Server AUTH: http://localhost:3000/
+[2021-06-24T19:44:29.073Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:44:29.073Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null
+[2021-06-24T19:44:32.029Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.030Z] [INFO] [HTTP] URL - [/index_bak.html]
+[2021-06-24T19:44:32.030Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.030Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.030Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.033Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.033Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.033Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.033Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.039Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.040Z] [INFO] [CORS] [RES-HEADERS] URL: /index_bak.html
+[2021-06-24T19:44:32.040Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.040Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.068Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.068Z] [INFO] [HTTP] URL - [/assets/style.css]
+[2021-06-24T19:44:32.068Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.069Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.069Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.070Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.070Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.070Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.071Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.073Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.073Z] [INFO] [CORS] [RES-HEADERS] URL: /style.css
+[2021-06-24T19:44:32.074Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.074Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.096Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.096Z] [INFO] [HTTP] URL - [/assets/frontend.js]
+[2021-06-24T19:44:32.097Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.097Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.097Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.098Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.098Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.098Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.099Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.100Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.100Z] [INFO] [CORS] [RES-HEADERS] URL: /frontend.js
+[2021-06-24T19:44:32.100Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.101Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.118Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.118Z] [INFO] [HTTP] URL - [/assets/icons/hexagon.svg]
+[2021-06-24T19:44:32.118Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.119Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.119Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.119Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.120Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.120Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.120Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.122Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.122Z] [INFO] [CORS] [RES-HEADERS] URL: /icons/hexagon.svg
+[2021-06-24T19:44:32.122Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.122Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.352Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.352Z] [INFO] [HTTP] URL - [/index_bak.html]
+[2021-06-24T19:44:32.353Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.353Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.353Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.354Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.354Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.354Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.354Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.356Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.357Z] [INFO] [CORS] [RES-HEADERS] URL: /index_bak.html
+[2021-06-24T19:44:32.357Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.357Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.383Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.383Z] [INFO] [HTTP] URL - [/assets/style.css]
+[2021-06-24T19:44:32.383Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.384Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.384Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.384Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.385Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.385Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.385Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.387Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.387Z] [INFO] [CORS] [RES-HEADERS] URL: /style.css
+[2021-06-24T19:44:32.387Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.387Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.412Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.412Z] [INFO] [HTTP] URL - [/assets/frontend.js]
+[2021-06-24T19:44:32.412Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.413Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.413Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.413Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.414Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.414Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.414Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.416Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.416Z] [INFO] [CORS] [RES-HEADERS] URL: /frontend.js
+[2021-06-24T19:44:32.416Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.416Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:32.420Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:32.420Z] [INFO] [HTTP] URL - [/assets/icons/hexagon.svg]
+[2021-06-24T19:44:32.420Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:32.421Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:32.421Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:32.421Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:32.422Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:32.422Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:32.422Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:32.424Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:32.424Z] [INFO] [CORS] [RES-HEADERS] URL: /icons/hexagon.svg
+[2021-06-24T19:44:32.424Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:32.424Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:39.465Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:39.465Z] [INFO] [HTTP] URL - [/index.html]
+[2021-06-24T19:44:39.465Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:39.466Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:39.466Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:39.467Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:39.467Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:39.467Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:39.467Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:39.470Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:39.470Z] [INFO] [CORS] [RES-HEADERS] URL: /index.html
+[2021-06-24T19:44:39.470Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:39.471Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:39.511Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:39.511Z] [INFO] [HTTP] URL - [/assets/script.js]
+[2021-06-24T19:44:39.511Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:39.512Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:39.512Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:39.513Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:39.513Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:39.513Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:39.514Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:39.515Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:39.516Z] [INFO] [CORS] [RES-HEADERS] URL: /script.js
+[2021-06-24T19:44:39.516Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:39.516Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:39.545Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:39.546Z] [INFO] [HTTP] URL - [/api/rndletters/20]
+[2021-06-24T19:44:39.546Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:39.546Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:39.547Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:39.547Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:39.548Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:39.548Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:39.548Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:39.551Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T19:44:39.551Z] [INFO] [CORS] [RES-HEADERS] URL: /rndletters/20
+[2021-06-24T19:44:39.551Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:39.551Z] [INFO] [CORS] [RES-HEADERS] STATUS: 401
+[2021-06-24T19:44:47.011Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:47.012Z] [INFO] [HTTP] URL - [/]
+[2021-06-24T19:44:47.012Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:47.012Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:47.012Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:47.013Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:47.013Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:47.013Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:47.014Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:47.015Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:47.015Z] [INFO] [CORS] [RES-HEADERS] URL: /
+[2021-06-24T19:44:47.016Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:47.016Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:47.056Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:47.056Z] [INFO] [HTTP] URL - [/assets/script.js]
+[2021-06-24T19:44:47.057Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:47.057Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:47.057Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:47.058Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:47.058Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:47.059Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:47.059Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:47.062Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:47.063Z] [INFO] [CORS] [RES-HEADERS] URL: /script.js
+[2021-06-24T19:44:47.063Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:47.063Z] [INFO] [CORS] [RES-HEADERS] STATUS: 304
+[2021-06-24T19:44:47.092Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:47.092Z] [INFO] [HTTP] URL - [/api/rndletters/20]
+[2021-06-24T19:44:47.093Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:47.093Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:47.093Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:47.094Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:47.094Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:47.095Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:47.095Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:47.097Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T19:44:47.097Z] [INFO] [CORS] [RES-HEADERS] URL: /rndletters/20
+[2021-06-24T19:44:47.097Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:47.098Z] [INFO] [CORS] [RES-HEADERS] STATUS: 401
+[2021-06-24T19:44:53.914Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:53.914Z] [INFO] [HTTP] URL - [/logout]
+[2021-06-24T19:44:53.914Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:53.915Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:53.915Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:53.915Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:53.916Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:53.916Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:53.916Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:53.918Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T19:44:53.918Z] [INFO] [CORS] [RES-HEADERS] URL: /logout
+[2021-06-24T19:44:53.918Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:53.919Z] [INFO] [CORS] [RES-HEADERS] STATUS: 200
+[2021-06-24T19:44:58.681Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T19:44:58.682Z] [INFO] [HTTP] URL - [/login]
+[2021-06-24T19:44:58.682Z] [INFO] [HTTP] IP - [::1]
+[2021-06-24T19:44:58.682Z] [INFO] [HTTP] SESSION-ID - [pq1p1J4mIyzvVIEQH4dv-r2Ul5MWcwX3]
+[2021-06-24T19:44:58.683Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T19:44:58.683Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+[2021-06-24T19:44:58.683Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T19:44:58.684Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T19:44:58.684Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T19:44:58.686Z] [INFO] [CORS] [RES-HEADERS] Content-Type: text/html; charset=utf-8
+[2021-06-24T19:44:58.687Z] [INFO] [CORS] [RES-HEADERS] URL: /login
+[2021-06-24T19:44:58.687Z] [INFO] [CORS] [RES-HEADERS] IP: ::1
+[2021-06-24T19:44:58.687Z] [INFO] [CORS] [RES-HEADERS] STATUS: 404

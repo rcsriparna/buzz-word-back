@@ -14,9 +14,10 @@ authRouter.use(
   express.static(path.join(__dirname, `../../${config.front.root}/${config.front.static}`))
 );
 
-authRouter.get("/", (req, res) => {
-  if (req.path == "/");
-  res.sendFile("/index.html", { root: path.join(__dirname, `../../${config.front.root}/`) });
+authRouter.get(["/", "/*.html"], (req, res) => {
+  if (req.path == "/") res.sendFile("index.html", { root: path.join(__dirname, `../../${config.front.root}/`) });
+  else if (req.path.includes("html"))
+    res.sendFile(req.path, { root: path.join(__dirname, `../../${config.front.root}/`) });
 });
 
 //logout
