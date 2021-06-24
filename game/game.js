@@ -151,3 +151,42 @@ export class GameState {
     return this.playersList;
   }
 }
+
+// state = {
+//   gameRooms: [
+//     {
+//       roomID: 0,
+//       roomName: "red",
+//       players: [
+//         { id: 0, name: "Adam", score: 0 },
+//         { id: 1, name: "Adam", score: 0 },
+//         { id: 2, name: "Adam", score: 0 },
+//         { id: 3, name: "Adam", score: 0 },
+//       ],
+//       roomState: "IN PROGRESS",
+//       minMembers: 4,
+//       round: { number: 3, letters: "dadasdadasdadasd" },
+//     },
+//     {
+//       roomID: 1,
+//       roomName: "blue",
+//       players: [
+//         { id: 0, name: "Daniel", score: 0 },
+//         { id: 1, name: "Daniel", score: 0 },
+//         { id: 2, name: "Daniel", score: 0 },
+//       ],
+//       roomState: "IN LOBBY",
+//       minMembers: 4,
+//       round: { number: 0, letters: "" },
+//     },
+//     {
+//       roomID: 1,
+//       roomName: "Single player",
+//       players: [{ id: 0, name: "Daniel", score: 0 }],
+//       roomState: "IN PROGRESS",
+//       minMembers: 1,
+//       round: { number: 0, letters: "dadasdadasdadasd" },
+//     },
+//   ],
+//   mainTimer: Date.now(),
+// };

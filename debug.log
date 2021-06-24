@@ -1,9 +1,9 @@
-[2021-06-24T18:23:28.556Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
-[2021-06-24T18:23:28.559Z] [INFO] [APP] Server is running on: http://localhost:3000
-[2021-06-24T18:23:28.559Z] [INFO] [APP] Server API: http://localhost:3000/api
-[2021-06-24T18:23:28.560Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T18:23:28.560Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T18:23:28.560Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
-[2021-06-24T18:23:28.561Z] [INFO] [APP] Server AUTH: http://localhost:3000/
-[2021-06-24T18:23:28.561Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
-[2021-06-24T18:23:28.561Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null
+[2021-06-24T19:25:13.509Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
+[2021-06-24T19:25:13.512Z] [INFO] [APP] Server is running on: http://localhost:3000
+[2021-06-24T19:25:13.512Z] [INFO] [APP] Server API: http://localhost:3000/api
+[2021-06-24T19:25:13.512Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:25:13.513Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:25:13.513Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
+[2021-06-24T19:25:13.513Z] [INFO] [APP] Server AUTH: http://localhost:3000/
+[2021-06-24T19:25:13.514Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T19:25:13.514Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null

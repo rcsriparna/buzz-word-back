@@ -9,9 +9,13 @@ import express from "express";
 const authRouter = Router();
 
 // authRouter.use(express.static("./assets", { root: __dirname }));
-authRouter.use("/assets", express.static(path.join(__dirname, `../../${config.front.root}/${config.front.static}`)));
+authRouter.use(
+  `/${config.front.static}`,
+  express.static(path.join(__dirname, `../../${config.front.root}/${config.front.static}`))
+);
 
-authRouter.get("/", function (req, res) {
+authRouter.get("/", (req, res) => {
+  if (req.path == "/");
   res.sendFile("/index.html", { root: path.join(__dirname, `../../${config.front.root}/`) });
 });
 
