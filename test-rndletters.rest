@@ -1,0 +1,4 @@
+### GENERATE RANDOM LETTERS
+GET http://localhost:3000/api/rndletters/100
+
+###

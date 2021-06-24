@@ -2,16 +2,16 @@
   "name": "buzz-word",
   "version": "1.0.0",
   "description": "\"# Buzz-word-back-end\"",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon --exec babel-node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/madalinacristea/Buzz-word-back-end.git"
   },
-  "author": "",
+  "author": "The BuZZ-WorD BaCkEnD DreamTeam: M. Cristea, D-M. Bulgaru, D. Hickinbottom, F. Rahman, A. Rzymski",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/madalinacristea/Buzz-word-back-end/issues"
@@ -19,11 +19,18 @@
   "homepage": "https://github.com/madalinacristea/Buzz-word-back-end#readme",
   "dependencies": {
     "connect-mongo": "^4.4.1",
-    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mongoose": "^5.12.14",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^6.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7"
   }
 }

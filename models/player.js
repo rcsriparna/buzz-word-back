@@ -1,13 +1,18 @@
-//Require Mongoose
-const mongoose = require('mongoose');
+import { model, Schema } from "mongoose";
+import passportLocalMongoose from "passport-local-mongoose";
+import passport from "passport";
 
-//Define a schema
-const Schema = mongoose.Schema;
-
-const PlayerSchema = new Schema({
-  name: String,
+//Model schema for player
+const playerSchema = new Schema({
+  name: { type: String, unique: true },
+  password: String,
   score: Number,
-  cookie: String
 });
 
-module.exports = mongoose.model("Player", PlayerSchema)
+playerSchema.plugin(passportLocalMongoose);
+const PlayerModel = model("Player", playerSchema);
+passport.use(PlayerModel.createStrategy());
+passport.serializeUser(PlayerModel.serializeUser());
+passport.deserializeUser(PlayerModel.deserializeUser());
+
+export { PlayerModel };

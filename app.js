@@ -1,76 +1,86 @@
-const express = require("express"); //import express dependency serves as web server
-const cors = require("cors"); //import cors, middleware for express, cross origin resource sharing
-const mongoose = require("mongoose");
-const app = express(); //create instance of server
-const GameState = require("./game/game");
-const logging = require("./logger/logging");
-const PlayerSchema = require("./models/player");
-const PORT = 3000; //const for port number
+import express from "express";
+import mongoose from "mongoose";
+import passport from "passport";
+import { logger } from "./logger/logging";
+import { config } from "./config/config";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import { GameState } from "./game/game";
+import { apiRouter } from "./routes/api";
+import { authRouter } from "./routes/auth";
+import { requestMiddleware } from "./middlewares/logging";
+import { rulesMiddleware } from "./middlewares/rules";
+import { errorMiddleware } from "./middlewares/errors";
 
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-
+//NAMESPACE FOR logger
 const NAMESPACE = "APP";
 
-app.use(
-  session({
-    secret: "foo",
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost/buzz-session" }),
-  })
-);
+//create express server
+//Express.js, or simply Express, is a back end web application framework for Node.js
+//It is designed for building web applications and APIs. It has been called the de facto standard server
+const app = express(); //create instance of server
 
-//configures middleware for server
+//ALL MIDDLEWARES - START
+//configure session
+//express-session is a middleware for express handling session setting and reading
+const exp_sessions = session({
+  secret: config.mongo.secret,
+  name: "buzz-words-session",
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongoUrl: config.mongo.url }),
+});
+
+//SESSIONS
+app.use(exp_sessions);
+//PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+//JSON body parsing
 app.use(express.json());
-app.use(cors());
-app.use(express.static(__dirname));
+//REQUESTS / RESPONSES
+app.use(requestMiddleware);
+//CORS / RULES
+app.use(rulesMiddleware);
+//ROUTES
+app.use(config.server.api_base, apiRouter);
+app.use("/", authRouter);
+//ERRORS
+app.use(errorMiddleware);
+//ALL MIDDLEWARES - END
 
-//custom middleware handling 'word checking' in external API
-const checkWord = async (req, res, next) => {
-  res.result = await game.checkWord(req.body.letters);
-  next();
-};
-
-//middleware handler - responsible for returning response as JSON
-const outputResponse = (req, res, next) => {
-  res.json(res.result);
-};
-
-//custom middleware handler for generating random letters
-const generateLetters = (req, res, next) => {
-  res.result = game.generateLetters(req.params.size);
-  next();
-};
-
-//two end points handling get requests for API
-app.post("/api/dict", checkWord, outputResponse);
-app.get("/api/rndletters/:size", generateLetters, outputResponse);
-
-//runs express server and conect to database
+//runs express server and connects to database
 const connect = async () => {
-  const URL = "mongodb://localhost";
-  mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
-  const db = mongoose.connection;
-  db.on("error", (err) => error("Connection error: " + err));
-  db.once("open", () => app.listen(PORT, () => console.log(`Server is running on ${PORT}`))); //we defer the normal "app.listen() - until the database has started up (bad things would happen if we started accepting requests before the database was running)"
+  try {
+    //await connection to DB
+    await mongoose.connect(config.mongo.url, config.mongo.options);
+    logger.info(NAMESPACE, `Connected to mongoDB host: ${config.mongo.url}`);
+  } catch (err) {
+    //ERROR log
+    logger.error(NAMESPACE, "ERROR:", err);
+  } finally {
+    //finally all good and ready to start listening on server
+    srv = app.listen(config.server.port, serverUp);
+  }
+};
+
+//runs when server is up
+const serverUp = () => {
+  logger.info(NAMESPACE, `Server is running on: ${config.server.hostname}:${srv.address().port}`);
+  logger.info(NAMESPACE, `Server API: ${config.server.hostname}:${srv.address().port}${config.server.api_base}`);
+  logger.info(NAMESPACE, `API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON`);
+  logger.info(NAMESPACE, `API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON`);
+  logger.info(NAMESPACE, `API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON`);
+  logger.info(NAMESPACE, `Server AUTH: ${config.server.hostname}:${srv.address().port}/`);
+  logger.info(NAMESPACE, `AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON`);
+  logger.info(NAMESPACE, `AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null`);
 };
 
 //entry point - initiates application
+//We create global srv variable to be able to get back server object and read port
+//If we supply port 0 in config - port would be assinged randomly (some hostings might require that) and it will get properly printed in console
+let srv;
 connect();
 
-const game = new GameState();
-game.addPlayer("name1");
-game.addPlayer("name2");
-game.addPlayer("name3");
-
-console.log(game);
-
-console.log(game.topPlayer);
-console.log(game.playersList);
-
-const ply = new PlayerSchema({ name: "One", score: 5, cookie: "abcd" });
-ply.save();
-
-logging.info(NAMESPACE, "Welcome to LOG",game);
-logging.error(NAMESPACE, "Welcome to LOG");
-logging.debug(NAMESPACE, "Welcome to LOG");
-logging.warn(NAMESPACE, "Welcome to LOG");
+//instantiate GameState
+export const game = new GameState();

@@ -1,23 +1,154 @@
-[2021-06-23T19:25:25.088Z] [INFO] [APP] Welcome to LOG{
-  "_playersList": [
-    {
-      "name": "name1",
-      "cookie": "",
-      "score": 0
-    },
-    {
-      "name": "name2",
-      "cookie": "",
-      "score": 0
-    },
-    {
-      "name": "name3",
-      "cookie": "",
-      "score": 0
-    }
-  ],
-  "letters": "abcdefg"
+[2021-06-24T17:33:52.212Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
+[2021-06-24T17:33:52.215Z] [INFO] [APP] Server is running on: http://localhost:3000
+[2021-06-24T17:33:52.215Z] [INFO] [APP] Server API: http://localhost:3000/api
+[2021-06-24T17:33:52.216Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T17:33:52.216Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T17:33:52.216Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
+[2021-06-24T17:33:52.216Z] [INFO] [APP] Server AUTH: http://localhost:3000/
+[2021-06-24T17:33:52.217Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
+[2021-06-24T17:33:52.217Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null
+[2021-06-24T17:37:17.144Z] [INFO] [HTTP] METHOD - [POST]
+[2021-06-24T17:37:17.145Z] [INFO] [HTTP] URL - [/api/join]
+[2021-06-24T17:37:17.145Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:37:17.145Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:37:17.146Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
 }
-[2021-06-23T19:25:25.090Z] [ERROR] [APP] Welcome to LOG{}
-[2021-06-23T19:25:25.091Z] [DEBUG] [APP] Welcome to LOG{}
-[2021-06-23T19:25:25.092Z] [WARN] [APP] Welcome to LOG{}
+[2021-06-24T17:37:17.148Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:37:17.149Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:37:17.149Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:37:17.149Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:37:17.358Z] [WARN] [GameState] User dasdasd. created sucesfully.
+    
+Object:
+    
+{
+  "name": "dasdasd.",
+  "score": 0,
+  "id": "60d4c2cdf06cf04c249a86bb",
+  "active": false
+}
+[2021-06-24T17:37:17.365Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T17:37:17.365Z] [INFO] [CORS] [RES-HEADERS] URL: /join
+[2021-06-24T17:37:17.366Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:37:17.366Z] [INFO] [CORS] [RES-HEADERS] STATUS: 201
+[2021-06-24T17:37:26.383Z] [INFO] [HTTP] METHOD - [POST]
+[2021-06-24T17:37:26.383Z] [INFO] [HTTP] URL - [/login]
+[2021-06-24T17:37:26.384Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:37:26.384Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:37:26.384Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T17:37:26.385Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:37:26.385Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:37:26.385Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:37:26.386Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:37:26.490Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T17:37:26.490Z] [INFO] [CORS] [RES-HEADERS] URL: /login
+[2021-06-24T17:37:26.490Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:37:26.490Z] [INFO] [CORS] [RES-HEADERS] STATUS: 200
+[2021-06-24T17:38:10.264Z] [INFO] [HTTP] METHOD - [POST]
+[2021-06-24T17:38:10.265Z] [INFO] [HTTP] URL - [/api/join]
+[2021-06-24T17:38:10.265Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:38:10.265Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:38:10.266Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T17:38:10.266Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:38:10.266Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:38:10.267Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:38:10.267Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:38:10.269Z] [WARN] [GameState] User dasdasd. already exists. Either login or choose different name.
+[2021-06-24T17:38:10.270Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T17:38:10.270Z] [INFO] [CORS] [RES-HEADERS] URL: /join
+[2021-06-24T17:38:10.271Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:38:10.271Z] [INFO] [CORS] [RES-HEADERS] STATUS: 400
+[2021-06-24T17:38:19.258Z] [INFO] [HTTP] METHOD - [POST]
+[2021-06-24T17:38:19.258Z] [INFO] [HTTP] URL - [/api/join]
+[2021-06-24T17:38:19.259Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:38:19.259Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:38:19.259Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T17:38:19.260Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:38:19.260Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:38:19.260Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:38:19.261Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:38:19.263Z] [WARN] [GameState] User dasdasd. already exists. Either login or choose different name.
+[2021-06-24T17:38:19.264Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T17:38:19.265Z] [INFO] [CORS] [RES-HEADERS] URL: /join
+[2021-06-24T17:38:19.265Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:38:19.265Z] [INFO] [CORS] [RES-HEADERS] STATUS: 400
+[2021-06-24T17:38:20.692Z] [INFO] [HTTP] METHOD - [POST]
+[2021-06-24T17:38:20.693Z] [INFO] [HTTP] URL - [/api/join]
+[2021-06-24T17:38:20.693Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:38:20.693Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:38:20.694Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T17:38:20.694Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:38:20.695Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:38:20.695Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:38:20.695Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:38:20.697Z] [WARN] [GameState] User dasdasd. already exists. Either login or choose different name.
+[2021-06-24T17:38:20.700Z] [INFO] [CORS] [RES-HEADERS] Content-Type: application/json; charset=utf-8
+[2021-06-24T17:38:20.700Z] [INFO] [CORS] [RES-HEADERS] URL: /join
+[2021-06-24T17:38:20.700Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:38:20.700Z] [INFO] [CORS] [RES-HEADERS] STATUS: 400
+[2021-06-24T17:40:01.373Z] [INFO] [HTTP] METHOD - [GET]
+[2021-06-24T17:40:01.374Z] [INFO] [HTTP] URL - [/logout]
+[2021-06-24T17:40:01.374Z] [INFO] [HTTP] IP - [::ffff:127.0.0.1]
+[2021-06-24T17:40:01.374Z] [INFO] [HTTP] SESSION-ID - [Zo8H6C5FfcoRRUT2hjXubbGE4BzfXo5j]
+[2021-06-24T17:40:01.375Z] [INFO] [HTTP] COOKIE:
+    
+Object:
+    
+{
+  "originalMaxAge": null,
+  "expires": null,
+  "httpOnly": true,
+  "path": "/"
+}
+[2021-06-24T17:40:01.375Z] [INFO] [CORS] [REQ-HEADERS] User-Agent: vscode-restclient
+[2021-06-24T17:40:01.375Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Origin: *
+[2021-06-24T17:40:01.376Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Headers: *
+[2021-06-24T17:40:01.376Z] [INFO] [CORS] [REQ-HEADERS] Access-Control-Allow-Credentials: true
+[2021-06-24T17:40:01.378Z] [INFO] [CORS] [RES-HEADERS] Content-Type: undefined
+[2021-06-24T17:40:01.378Z] [INFO] [CORS] [RES-HEADERS] URL: /logout
+[2021-06-24T17:40:01.378Z] [INFO] [CORS] [RES-HEADERS] IP: ::ffff:127.0.0.1
+[2021-06-24T17:40:01.379Z] [INFO] [CORS] [RES-HEADERS] STATUS: 200

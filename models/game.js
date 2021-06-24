@@ -7,7 +7,6 @@ const Schema = mongoose.Schema;
 const GameSchema = new Schema({
   name: String,
   score: Number,
-  cookie: String
 });
 
 module.exports = mongoose.model("Game", GameSchema)

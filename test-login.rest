@@ -1,0 +1,20 @@
+### LOGIN
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "username": "user9",
+    "password": "password"
+}
+
+### BAD LOGIN
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+    "username": "name3a",
+    "password": "password"
+}
+
+### LOGOUT
+GET http://localhost:3000/logout
