@@ -16,7 +16,7 @@ const checkWord = async (req, res, next) => {
 
 //custom middleware handler for generating random letters accessed from within game object [Class GameState]
 const generateLetters = async (req, res, next) => {
-  console.log(req.user)
+  console.log(req.user);
   if (req.user) {
     res.locals.data = game.generateLetters(req.params.size);
     res.status(config.http.CREATED);
@@ -25,7 +25,7 @@ const generateLetters = async (req, res, next) => {
 };
 //custom middleware handler for creating player from within game object [Class GameState]
 const createPlayer = async (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   res.locals.data = await game.addPlayer(req.body);
   if (res.locals.data) res.status(config.http.CREATED);
   else {
@@ -45,6 +45,15 @@ const gameState = async (req, res, next) => {
   next();
 };
 
+//custom middleware handler for returning game status from within game object [Class GameState]
+const joinRoom = async (req, res, next) => {
+  if (req.user) {
+    const player = await game.getUserByID(req.body.id)
+    res.locals.data = game.state.addPlayer(req.body.roomid, player);
+  } else res.status(config.http.UNAUTHORIZED);
+  next();
+};
+
 //middleware handler - responsible for returning response as JSON
 const outputResponse = (req, res, next) => {
   res.json(res.locals.data);
@@ -55,5 +64,6 @@ apiRouter.post("/dict", checkWord, outputResponse);
 apiRouter.get("/rndletters/:size", generateLetters, outputResponse);
 apiRouter.post("/join", createPlayer, outputResponse);
 apiRouter.get("/state", gameState, outputResponse);
+apiRouter.post("/room", joinRoom, outputResponse);
 
 export { apiRouter };

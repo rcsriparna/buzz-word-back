@@ -5,7 +5,7 @@ const NAMESPACE = "CORS";
 
 // API RULES | OPTIONS | CORS etc...
 export const rulesMiddleware = (req, res, next) => {
-  if (req.url != "/api/state") {
+  if (req.url != "/api/state" && req.url != "/timesync") {
     res.header("Access-Control-Allow-Origin", config.debug ? "*" : config.server.hostname);
     res.header("Access-Control-Allow-Headers", "*");
     res.header("Access-Control-Allow-Origin", "*");

@@ -2,6 +2,7 @@ import { Player } from "./player";
 import fetch from "node-fetch";
 import { PlayerModel } from "../models/player";
 import { logger } from "../logger/logging";
+import { state } from "./state";
 
 const NAMESPACE = "GameState";
 
@@ -18,8 +19,16 @@ export class GameState {
     this._playersList = [];
     this.letters = "abcdefg";
     this.loadDB();
+    this.state = state;
+    this.initRooms();
   }
 
+  initRooms() {
+    this.state.createRoom("GOLDEN", 4, 10, 30).addRound(0, 30);
+    this.state.createRoom("SILVER", 4, 10, 45).addRound(1, 30);
+    this.state.createRoom("BRONZE", 4, 10, 60).addRound(2, 30);
+    this.state.createRoom("SINGLE", 1, 10, 30).addRound(3, 30);
+  }
   //helper function calculating total score based on preset scoring system
 
   loadDB = async () => {
@@ -54,7 +63,7 @@ export class GameState {
     return word;
   };
 
-  getUserByID = async (user) => await PlayerModel.findById(user.id);
+  getUserByID = async (id) => await PlayerModel.findById(id);
 
   checkWord = async (letters, user) => {
     user = await this.getUserByID(user);
@@ -146,47 +155,4 @@ export class GameState {
   get playersList() {
     return this._playersList;
   }
-
-  get state() {
-    return this.playersList;
-  }
 }
-
-// state = {
-//   gameRooms: [
-//     {
-//       roomID: 0,
-//       roomName: "red",
-//       players: [
-//         { id: 0, name: "Adam", score: 0 },
-//         { id: 1, name: "Adam", score: 0 },
-//         { id: 2, name: "Adam", score: 0 },
-//         { id: 3, name: "Adam", score: 0 },
-//       ],
-//       roomState: "IN PROGRESS",
-//       minMembers: 4,
-//       round: { number: 3, letters: "dadasdadasdadasd" },
-//     },
-//     {
-//       roomID: 1,
-//       roomName: "blue",
-//       players: [
-//         { id: 0, name: "Daniel", score: 0 },
-//         { id: 1, name: "Daniel", score: 0 },
-//         { id: 2, name: "Daniel", score: 0 },
-//       ],
-//       roomState: "IN LOBBY",
-//       minMembers: 4,
-//       round: { number: 0, letters: "" },
-//     },
-//     {
-//       roomID: 1,
-//       roomName: "Single player",
-//       players: [{ id: 0, name: "Daniel", score: 0 }],
-//       roomState: "IN PROGRESS",
-//       minMembers: 1,
-//       round: { number: 0, letters: "dadasdadasdadasd" },
-//     },
-//   ],
-//   mainTimer: Date.now(),
-// };

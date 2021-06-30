@@ -4,6 +4,7 @@ import { config } from "../config/config";
 import { game } from "../app";
 import path from "path";
 import express from "express";
+var timesyncServer = require('timesync/server');
 
 //router for "/..." route
 const authRouter = Router();
@@ -19,6 +20,8 @@ authRouter.get(["/", "/*.html"], (req, res) => {
   else if (req.path.includes("html"))
     res.sendFile(req.path, { root: path.join(__dirname, `../../${config.front.root}/`) });
 });
+
+authRouter.use("/timesync", timesyncServer.requestHandler);
 
 //logout
 authRouter.get("/logout", (req, res) => {
