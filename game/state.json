@@ -22,14 +22,12 @@
             "roomState": 0,
             "rounds": [
                 {
-                    "round": {
-                        "letters": "",
-                        "startingAt": null,
-                        "endingAt": null,
-                        "roundDuration": 30,
-                        "winner": 0,
-                        "word": null
-                    }
+                    "letters": "",
+                    "startingAt": null,
+                    "endingAt": null,
+                    "roundDuration": 30,
+                    "winner": 0,
+                    "word": null
                 }
             ],
             "gridSize": 0
@@ -43,14 +41,12 @@
             "roomState": 0,
             "rounds": [
                 {
-                    "round": {
-                        "letters": "",
-                        "startingAt": null,
-                        "endingAt": null,
-                        "roundDuration": 30,
-                        "winner": 0,
-                        "word": null
-                    }
+                    "letters": "",
+                    "startingAt": null,
+                    "endingAt": null,
+                    "roundDuration": 30,
+                    "winner": 0,
+                    "word": null
                 }
             ],
             "gridSize": 0
@@ -64,14 +60,12 @@
             "roomState": 0,
             "rounds": [
                 {
-                    "round": {
-                        "letters": "",
-                        "startingAt": null,
-                        "endingAt": null,
-                        "roundDuration": 30,
-                        "winner": 0,
-                        "word": null
-                    }
+                    "letters": "",
+                    "startingAt": null,
+                    "endingAt": null,
+                    "roundDuration": 30,
+                    "winner": 0,
+                    "word": null
                 }
             ],
             "gridSize": 0
@@ -85,14 +79,12 @@
             "roomState": 0,
             "rounds": [
                 {
-                    "round": {
-                        "letters": "",
-                        "startingAt": null,
-                        "endingAt": null,
-                        "roundDuration": 30,
-                        "winner": 0,
-                        "word": null
-                    }
+                    "letters": "",
+                    "startingAt": null,
+                    "endingAt": null,
+                    "roundDuration": 30,
+                    "winner": 0,
+                    "word": null
                 }
             ],
             "gridSize": 0

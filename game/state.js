@@ -42,14 +42,12 @@ export const state = {
   },
   addRound(roomID, roundDuration) {
     this.gameRooms[roomID].rounds.push({
-      round: {
-        letters: "",
-        startingAt: null,
-        endingAt: null,
-        roundDuration: roundDuration,
-        winner: 0,
-        word: null,
-      },
+      letters: "",
+      startingAt: null,
+      endingAt: null,
+      roundDuration: roundDuration,
+      winner: 0,
+      word: null,
     });
   },
 };
