@@ -1,9 +1,0 @@
-[2021-06-30T18:41:36.155Z] [INFO] [APP] Connected to mongoDB host: mongodb://localhost/buzz-words
-[2021-06-30T18:41:36.158Z] [INFO] [APP] Server is running on: http://localhost:3000
-[2021-06-30T18:41:36.158Z] [INFO] [APP] Server API: http://localhost:3000/api
-[2021-06-30T18:41:36.159Z] [INFO] [APP] API Endpoint: "/join" METHOD: POST, Accepts: JSON => JSON
-[2021-06-30T18:41:36.159Z] [INFO] [APP] API Endpoint: "/dict" METHOD: POST, Accepts: JSON => JSON
-[2021-06-30T18:41:36.159Z] [INFO] [APP] API Endpoint: "/rndletters/:size" METHOD: GET, Accepts: query[number] => JSON
-[2021-06-30T18:41:36.159Z] [INFO] [APP] Server AUTH: http://localhost:3000/
-[2021-06-30T18:41:36.159Z] [INFO] [APP] AUTH Endpoint: "/login" METHOD: POST, Accepts: JSON => JSON
-[2021-06-30T18:41:36.160Z] [INFO] [APP] AUTH Endpoint: "/logout" METHOD: GET, Accepts: null => null
