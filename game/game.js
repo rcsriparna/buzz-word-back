@@ -81,6 +81,15 @@ export class Game {
       response.letters = letters;
     }
     user.score += response.score;
+    player.score += response.score;
+    this.state.gameRooms[player.room].players.forEach(p => {
+      if (p.id == player.id) {
+        p.scores.push(response.score)
+        p.score += response.score
+        p.words.push(response)
+      }
+    })
+
     this.playersList.forEach((player) => {
       if (player.name == user.username) player.score += response.score;
     });

@@ -15,10 +15,71 @@
                 {
                     "id": "60d4974c0791a35c6c6970fd",
                     "name": "username",
-                    "score": 0,
+                    "score": 4,
                     "room": 0,
-                    "words": [],
-                    "scores": []
+                    "words": [
+                        {
+                            "word": "den",
+                            "phonetics": [
+                                {
+                                    "text": "/dɛn/",
+                                    "audio": "https://lex-audio.useremarkable.com/mp3/den_gb_1.mp3"
+                                }
+                            ],
+                            "meanings": [
+                                {
+                                    "partOfSpeech": "verb",
+                                    "definitions": [
+                                        {
+                                            "definition": "(of a wild animal) live in a den.",
+                                            "example": "the cubs denned in the late autumn"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "partOfSpeech": "noun",
+                                    "definitions": [
+                                        {
+                                            "definition": "A wild mammal's hidden home; a lair.",
+                                            "synonyms": [
+                                                "lair",
+                                                "sett",
+                                                "earth",
+                                                "drey",
+                                                "lodge",
+                                                "burrow",
+                                                "hole",
+                                                "tunnel",
+                                                "cave",
+                                                "dugout",
+                                                "hollow",
+                                                "covert",
+                                                "shelter",
+                                                "hiding place",
+                                                "hideout"
+                                            ],
+                                            "example": "a female mink had set up her den there"
+                                        },
+                                        {
+                                            "definition": "A small subdivision of a Cub Scout pack.",
+                                            "example": "Cub Scouting members join a Cub Scout pack and are assigned to a den, usually a neighborhood group of six to eight boys."
+                                        }
+                                    ]
+                                }
+                            ],
+                            "score": 4,
+                            "match": true,
+                            "letters": {
+                                "c0": "E",
+                                "c1": "E",
+                                "c2": "E"
+                            },
+                            "winner": "username"
+                        }
+                    ],
+                    "scores": [
+                        4
+                    ]
                 }
             ],
             "roomState": 0,
@@ -43,16 +104,7 @@
             "maxMembers": 4,
             "roundsTotal": 10,
             "roundDuration": 45,
-            "players": [
-                {
-                    "id": "60d4974c0791a35c6c6970fd",
-                    "name": "username",
-                    "score": 0,
-                    "room": 1,
-                    "words": [],
-                    "scores": []
-                }
-            ],
+            "players": [],
             "roomState": 0,
             "rounds": [
                 {
@@ -65,7 +117,7 @@
                 }
             ],
             "gridSize": 0,
-            "playersCount": 1,
+            "playersCount": 0,
             "currentRound": 1,
             "hasSpace": true
         },
