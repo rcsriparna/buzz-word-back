@@ -6,48 +6,73 @@ export const state = {
   },
   createRoom(roomName, maxMembers, roundsTotal, roundDuration) {
     this.gameRooms.push({
+      //ROOM PROPERTIES / KEYS
       roomName,
       roomID: this.gameRooms.length,
       maxMembers,
       roundsTotal,
+      roundDuration,
       players: [],
       roomState: 0,
       rounds: [],
       gridSize: 0,
+      //ROOM METHODS
+      isInRoom(player) {
+        for (const p of this.players) {
+          if (String(p.id) === String(player._id)) return true
+        }
+        return false
+      },
+      addPlayer(player) { this.players.push(player) },
+      //ROOM GETTERS
+      get playersCount() {
+        return this.players.length
+      },
+      get currentRound() {
+        return this.rounds.length
+      },
+      get hasSpace() {
+        return this.playersCount < this.maxMembers;
+      },
     });
+    //RETURN ROOM AFTER CREATING TO SUPPORT METHODS CHAINING
     return this;
   },
-  addPlayer(roomID, player) {
+  async addPlayer(roomID, player) {// we have to sanitaze room joining by checking if we are logged in in any of remaining rooms and if so to be removed from other room automatically
+    const room = this.gameRooms[roomID]
     if (
-      this.gameRooms[roomID].players.filter((p) => (p.id = player)).length == 0 &&
-      this.hasSpace(roomID) &&
-      this.gameRooms[roomID].roomState == 0
-    )
-      this.gameRooms[roomID].players.push({ id: player.id, name: player.name, score: 0, words: [], scores: [] });
-    else console.log("dupe or no space");
-  },
-  hasSpace(roomID) {
-    return this.gameRooms[roomID].players.length < this.gameRooms[roomID].maxMembers;
-  },
-  startRound(roomID) {
-    const lastRound = this.gameRooms[roomID].rounds.length - 1;
-    if (lastRound <= this.gameRooms[roomID].roundsTotal) {
-      const start = new Date();
-      start.setSeconds(start.getSeconds() + 12);
-      this.gameRooms[roomID].rounds[lastRound].startingAt = start;
-      const end = new Date(start);
-      end.setSeconds(end.getSeconds() + this.gameRooms[roomID].rounds[lastRound].roundDuration);
-      this.gameRooms[roomID].rounds[lastRound].endingAt = end;
+      room.roomState == 0 &&
+      room.hasSpace &&
+      !room.isInRoom(player) &&
+      (!player.room || player.room == null)
+    ) {
+      room.addPlayer({ id: player.id, name: player.name, score: 0,room:roomID, words: [], scores: [] });
+      player.room = roomID
+      return player
     }
+    else console.log("dupe or no space or already in another room");
+    return false
   },
   addRound(roomID, roundDuration) {
-    this.gameRooms[roomID].rounds.push({
-      letters: "",
-      startingAt: null,
-      endingAt: null,
-      roundDuration: roundDuration,
-      winner: 0,
-      word: null,
-    });
+    const room = this.gameRooms[roomID]
+    const lastRound = room.rounds.length - 1;
+    if (lastRound <= room.roundsTotal) {
+      room.rounds.push({
+        letters: "",
+        startingAt: null,
+        endingAt: null,
+        roundDuration: room.roundDuration,
+        winner: 0,
+        word: null,
+        startRound() {
+          const start = new Date();
+          start.setSeconds(start.getSeconds() + 12);
+          this.startingAt = start;
+          const end = new Date(start);
+          end.setSeconds(end.getSeconds() + this.roundDuration);
+          this.endingAt = end;
+        },
+      })
+    };
   },
 };

@@ -3,6 +3,5 @@ POST http://localhost:3000/api/room
 content-type: application/json
 
 {
-    "roomid":"0", 
-    "id":"60d4974c0791a35c6c6970fd"
+    "roomid":0
 }

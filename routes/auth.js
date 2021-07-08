@@ -31,12 +31,33 @@ authRouter.get("/logout", (req, res) => {
   res.send();
 });
 
+//custom middleware handler for creating player from within game object [Class GameState]
+authRouter.post("/signup", async (req, res, next) => {
+  if (req.user) req.logout();
+  res.locals.data = await game.addPlayer(req.body);
+  if (res.locals.data) {
+      req.logIn(res.locals.data, async (errLogIn) => {
+        if (errLogIn) {
+          return next(errLogIn);
+        }
+      });
+      res.locals.data = await game.getPlayer(res.locals.data.username);
+  }
+  else {
+    res.status(config.http.BAD_REQUEST);
+    res.locals.data = {
+      message: `User ${req.body.username} already exists. Either login or choose different name.`,
+    };
+  }
+  res.json(res.locals.data);
+})
+
 //login POST with username and password in body
 authRouter.post("/login", passport.authenticate("local"), async (req, res) => {
-  res.locals.player = await game.getPlayer(req.body.username);
-  game.markActive(res.locals.player.id);
+  res.locals.data = await game.getPlayer(req.body.username);
+  game.markActive(res.locals.data.id);
   res.status(config.http.OK);
-  res.json(res.locals.player);
+  res.json(res.locals.data);
 });
 
 export { authRouter };

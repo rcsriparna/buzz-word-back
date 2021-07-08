@@ -3,8 +3,16 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "username": "username",
+    "username": "Adam R",
     "password": "password"
+}
+### CREATE NEW USER
+POST http://localhost:3000/signup
+content-type: application/json
+
+{
+    "username":"User49", 
+    "password":"password"
 }
 
 ### BAD LOGIN

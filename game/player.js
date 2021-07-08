@@ -6,6 +6,7 @@ export const Player = (name, id) => {
     name: name,
     score: 0,
     id: id,
+    room:null,
     active: false,
   };
 };

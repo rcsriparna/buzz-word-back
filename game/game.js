@@ -63,7 +63,7 @@ export class GameState {
     return word;
   };
 
-  getUserByID = async (id) => await PlayerModel.findById(id);
+  getUserByID = async (id) => this._playersList.find(p=>p.id == id);
 
   checkWord = async (letters, user) => {
     user = await this.getUserByID(user);
@@ -121,10 +121,10 @@ export class GameState {
       player = new PlayerModel({ username: newPlayer.username, name: newPlayer.username, score: 0 });
       await player.setPassword(newPlayer.password);
       await player.save();
-      const { user } = await PlayerModel.authenticate()(newPlayer.username, newPlayer.password);
+      // const { user } = await PlayerModel.authenticate()(newPlayer.username, newPlayer.password);
       this._playersList.push(Player(newPlayer.username, player.id));
       logger.warn(NAMESPACE, `User ${newPlayer.username} created sucesfully.`, this.lastPlayer);
-      return this.lastPlayer;
+      return player;
     }
   };
 
@@ -134,7 +134,8 @@ export class GameState {
 
   getPlayer = async (username) => {
     console.log(username);
-    const player = await PlayerModel.findOne({ username: username });
+    // const player = await PlayerModel.findOne({ username: username });
+    const player = this._playersList.find(p=>p.name == username);
     return player;
   };
 
