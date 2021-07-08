@@ -41,11 +41,12 @@ export const state = {
   async addPlayer(roomId, player) {// we have to sanitaze room joining by checking if we are logged in in any of remaining rooms and if so to be removed from other room automatically
     const room = this.gameRooms[roomId]
     console.log(player)
+    console.log(!isNaN(player.room))
     if (
       room.roomState == 0 &&
       room.hasSpace &&
       !room.isInRoom(player) &&
-      (!player.room || player.room == null)
+      (isNaN(player.room) || player.room == null)
     ) {
       room.addPlayer({ id: player.id, name: player.name, score: 0,room:roomId, words: [], scores: [] });
       player.room = roomId

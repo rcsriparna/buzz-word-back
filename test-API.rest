@@ -12,7 +12,7 @@ content-type: application/json
 ### GENERATE RANDOM LETTERS
 GET http://localhost:3000/api/rndletters/100
 
-### CHECK DICTIONARY WIT VALID WORD
+### CHECK DICTIONARY WITH VALID WORD
 POST http://localhost:3000/api/dict
 content-type: application/json
 
@@ -20,7 +20,7 @@ content-type: application/json
     "letters": {"c0":"D","c1":"E","c2":"N"}
 }
 
-### CHECK DICTIONARY WIT INVALID WORD
+### CHECK DICTIONARY WITH INVALID WORD
 POST http://localhost:3000/api/dict
 content-type: application/json
 
