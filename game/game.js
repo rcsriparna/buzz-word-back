@@ -63,10 +63,10 @@ export class Game {
     return word;
   };
 
-  getUserByID = async (id) => this._playersList.find(p=>p.id == id);
+  getUserByID = async (id) => this._playersList.find(p => p.id == id);
 
   checkWord = async (letters, user) => {
-    user = await this.getUserByID(user);
+    const player = await this.getUserByID(user._id)
     const word = this.assembleWord(letters);
     let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
     response = await response.json();
@@ -135,7 +135,7 @@ export class Game {
   getPlayer = async (username) => {
     console.log(username);
     // const player = await PlayerModel.findOne({ username: username });
-    const player = this._playersList.find(p=>p.name == username);
+    const player = this._playersList.find(p => p.name == username);
     return player;
   };
 
