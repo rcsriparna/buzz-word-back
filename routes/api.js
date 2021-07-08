@@ -23,7 +23,6 @@ const generateLetters = async (req, res, next) => {
   next();
 };
 
-
 //custom middleware handler for returning game status from within game object [Class GameState]
 const gameState = async (req, res, next) => {
   if (req.user) {

@@ -1,0 +1,31 @@
+### GAME STATE
+GET http://localhost:3000/api/state
+
+### JOIN ROOM
+POST http://localhost:3000/api/room
+content-type: application/json
+
+{
+    "roomid":0
+}
+
+### GENERATE RANDOM LETTERS
+GET http://localhost:3000/api/rndletters/100
+
+### CHECK DICTIONARY WIT VALID WORD
+POST http://localhost:3000/api/dict
+content-type: application/json
+
+{
+    "letters": {"c0":"D","c1":"E","c2":"N"}
+}
+
+### CHECK DICTIONARY WIT INVALID WORD
+POST http://localhost:3000/api/dict
+content-type: application/json
+
+{
+    "letters": {"c0":"D","c1":"D","c2":"D"}
+}
+
+###

@@ -3,25 +3,25 @@ POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "username": "Adam R",
+    "username": "username",
     "password": "password"
 }
-### CREATE NEW USER
+### CREATE NEW USER WITH AUTO LOGIN
 POST http://localhost:3000/signup
 content-type: application/json
 
 {
-    "username":"User49", 
+    "username":"username", 
     "password":"password"
 }
 
-### BAD LOGIN
+### BAD LOGIN TEST
 POST http://localhost:3000/login
 content-type: application/json
 
 {
-    "username": "name3a",
-    "password": "password"
+    "username": "invalid",
+    "password": "login"
 }
 
 ### LOGOUT
