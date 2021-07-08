@@ -8,7 +8,7 @@ export const state = {
     this.gameRooms.push({
       //ROOM PROPERTIES / KEYS
       roomName,
-      roomID: this.gameRooms.length,
+      roomId: this.gameRooms.length,
       maxMembers,
       roundsTotal,
       roundDuration,
@@ -19,7 +19,7 @@ export const state = {
       //ROOM METHODS
       isInRoom(player) {
         for (const p of this.players) {
-          if (String(p.id) === String(player._id)) return true
+          if (String(p.id) === String(player.id)) return true
         }
         return false
       },
@@ -38,23 +38,24 @@ export const state = {
     //RETURN ROOM AFTER CREATING TO SUPPORT METHODS CHAINING
     return this;
   },
-  async addPlayer(roomID, player) {// we have to sanitaze room joining by checking if we are logged in in any of remaining rooms and if so to be removed from other room automatically
-    const room = this.gameRooms[roomID]
+  async addPlayer(roomId, player) {// we have to sanitaze room joining by checking if we are logged in in any of remaining rooms and if so to be removed from other room automatically
+    const room = this.gameRooms[roomId]
+    console.log(player)
     if (
       room.roomState == 0 &&
       room.hasSpace &&
       !room.isInRoom(player) &&
       (!player.room || player.room == null)
     ) {
-      room.addPlayer({ id: player.id, name: player.name, score: 0,room:roomID, words: [], scores: [] });
-      player.room = roomID
+      room.addPlayer({ id: player.id, name: player.name, score: 0,room:roomId, words: [], scores: [] });
+      player.room = roomId
       return player
     }
     else console.log("dupe or no space or already in another room");
     return false
   },
-  addRound(roomID, roundDuration) {
-    const room = this.gameRooms[roomID]
+  addRound(roomId, roundDuration) {
+    const room = this.gameRooms[roomId]
     const lastRound = room.rounds.length - 1;
     if (lastRound <= room.roundsTotal) {
       room.rounds.push({

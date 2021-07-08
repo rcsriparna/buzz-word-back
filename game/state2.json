@@ -7,7 +7,7 @@
   "gameRooms": [
     {
       "roomName": "GOLDEN",
-      "roomID": 0,
+      "roomId": 0,
       "maxMembers": 4,
       "roundsTotal": 10,
       "roundDuration": 30,
@@ -38,7 +38,7 @@
     },
     {
       "roomName": "SILVER",
-      "roomID": 1,
+      "roomId": 1,
       "maxMembers": 4,
       "roundsTotal": 10,
       "roundDuration": 45,
@@ -61,7 +61,7 @@
     },
     {
       "roomName": "BRONZE",
-      "roomID": 2,
+      "roomId": 2,
       "maxMembers": 4,
       "roundsTotal": 10,
       "roundDuration": 60,
@@ -84,7 +84,7 @@
     },
     {
       "roomName": "SINGLE",
-      "roomID": 3,
+      "roomId": 3,
       "maxMembers": 1,
       "roundsTotal": 10,
       "roundDuration": 30,

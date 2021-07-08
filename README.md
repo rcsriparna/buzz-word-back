@@ -48,7 +48,7 @@ body = {
 <p>Joins user to room.</p>
 <code>
 body = {
-    "roomid":0
+    "roomId":0
 }
  </code>
  <hr>

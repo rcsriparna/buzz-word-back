@@ -35,7 +35,7 @@ const gameState = async (req, res, next) => {
 const joinRoom = async (req, res, next) => {
   if (req.user) {
     const player = await game.getUserByID(req.user._id)
-    res.locals.data = await game.state.addPlayer(req.body.roomid, player);
+    res.locals.data = await game.state.addPlayer(req.body.roomId, player);
     if (res.locals.data) res.status(config.http.CREATED);
     else {
       res.status(config.http.BAD_REQUEST);
