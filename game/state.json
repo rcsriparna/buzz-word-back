@@ -10,21 +10,16 @@
             "roomId": 0,
             "maxMembers": 4,
             "roundsTotal": 10,
+            "roundDuration": 30,
             "players": [
                 {
                     "id": "60d4974c0791a35c6c6970fd",
                     "name": "username",
                     "score": 0,
+                    "room": 0,
                     "words": [],
                     "scores": []
-                },
-                {
-                    "id": "60d49fc8cdb1642e3838f6e6",
-                    "name": "Adam R",
-                    "score": 0,
-                    "words": [],
-                    "scores": []
-                  }
+                }
             ],
             "roomState": 0,
             "rounds": [
@@ -37,32 +32,49 @@
                     "word": null
                 }
             ],
-            "gridSize": 0
+            "gridSize": 0,
+            "playersCount": 1,
+            "currentRound": 1,
+            "hasSpace": true
         },
         {
             "roomName": "SILVER",
             "roomId": 1,
             "maxMembers": 4,
             "roundsTotal": 10,
-            "players": [],
+            "roundDuration": 45,
+            "players": [
+                {
+                    "id": "60d4974c0791a35c6c6970fd",
+                    "name": "username",
+                    "score": 0,
+                    "room": 1,
+                    "words": [],
+                    "scores": []
+                }
+            ],
             "roomState": 0,
             "rounds": [
                 {
                     "letters": "",
                     "startingAt": null,
                     "endingAt": null,
-                    "roundDuration": 30,
+                    "roundDuration": 45,
                     "winner": 0,
                     "word": null
                 }
             ],
-            "gridSize": 0
+            "gridSize": 0,
+            "playersCount": 1,
+            "currentRound": 1,
+            "hasSpace": true
         },
         {
             "roomName": "BRONZE",
             "roomId": 2,
             "maxMembers": 4,
             "roundsTotal": 10,
+            "roundDuration": 60,
             "players": [],
             "roomState": 0,
             "rounds": [
@@ -70,18 +82,22 @@
                     "letters": "",
                     "startingAt": null,
                     "endingAt": null,
-                    "roundDuration": 30,
+                    "roundDuration": 60,
                     "winner": 0,
                     "word": null
                 }
             ],
-            "gridSize": 0
+            "gridSize": 0,
+            "playersCount": 0,
+            "currentRound": 1,
+            "hasSpace": true
         },
         {
             "roomName": "SINGLE",
             "roomId": 3,
             "maxMembers": 1,
             "roundsTotal": 10,
+            "roundDuration": 30,
             "players": [],
             "roomState": 0,
             "rounds": [
@@ -94,7 +110,10 @@
                     "word": null
                 }
             ],
-            "gridSize": 0
+            "gridSize": 0,
+            "playersCount": 0,
+            "currentRound": 1,
+            "hasSpace": true
         }
     ]
 }
