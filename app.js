@@ -5,7 +5,7 @@ import { logger } from "./logger/logging";
 import { config } from "./config/config";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import { GameState } from "./game/game";
+import { Game } from "./game/game";
 import { apiRouter } from "./routes/api";
 import { authRouter } from "./routes/auth";
 import { requestMiddleware } from "./middlewares/logging";
@@ -82,8 +82,8 @@ const serverUp = () => {
 let srv;
 connect();
 
-//instantiate GameState
-export const game = new GameState();
+//instantiate Game
+export const game = new Game();
 
 
 

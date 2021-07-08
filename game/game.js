@@ -14,7 +14,7 @@ const NAMESPACE = "GameState";
 // (8 points)- J, X
 // (10 points)-Q, Z
 
-export class GameState {
+export class Game {
   constructor() {
     this._playersList = [];
     this.letters = "abcdefg";
