@@ -21,6 +21,9 @@ export class Game {
     this.loadDB();
     this.state = state;
     this.initRooms();
+    this.startMonitoring();
+    this.monitorId = null;
+    this.endingTimes = [];
   }
 
   initRooms() {
@@ -29,6 +32,50 @@ export class Game {
     this.state.createRoom("BRONZE", 4, 10, 60).addRound(2, 30);
     this.state.createRoom("SINGLE", 1, 10, 30).addRound(3, 30);
   }
+
+  startMonitoring() {
+    this.monitorId = setInterval(this.processState.bind(this), 500);
+  }
+
+  stopMonitoring() {
+    clearInterval(this.monitorId);
+  }
+
+  processState() {
+    // console.log(this.state);
+
+    const needToStartGame = () => {
+      this.state.gameRooms.forEach((room) => {
+        // console.log(room.roomState, room.hasSpace);
+        if (room.roomState == 0 && !room.hasSpace) {
+          this.startGame(room.roomId);
+        }
+      });
+    };
+
+    const needToStartRound = () => {
+      this.state.gameRooms.forEach((room) => {
+        // console.log(room.roomState, room.hasSpace);
+        if (room.roomState == 1) {
+          if (room.rounds.length > 1) this.startRound(room.roomId);
+        }
+      });
+    };
+
+    // const needToFinishRound = () => {
+    //   this.state.gameRooms.forEach((room) => {
+    //     // console.log(room.roomState, room.hasSpace);
+    //     if (room.roomState == 1) {
+    //       this.finishRound(room.roomId);
+    //     }
+    //   });
+    // };
+
+    needToStartGame();
+    needToStartRound();
+    // needToFinishRound();
+  }
+
   //helper function calculating total score based on preset scoring system
 
   loadDB = async () => {
@@ -63,10 +110,67 @@ export class Game {
     return word;
   };
 
-  getUserByID = async (id) => this._playersList.find(p => p.id == id);
+  startGame(roomId) {
+    const room = this.state.gameRooms[roomId];
+    room.roomState = 1;
+    room.rounds[0].startRound();
+    this.state.addRound(roomId);
+  }
+
+  startRound(roomId) {
+    const room = this.state.gameRooms[roomId];
+    const currRound = room.rounds[room.rounds.length - 1];
+    const prevRound = room.rounds[room.rounds.length - 2];
+    if (currRound.startingIn == null && (prevRound.finished || room.rounds.length == 2)) {
+      currRound.startRound();
+      setTimeout(this.finishRound.bind(this), (room.roundDuration + 2) * 1000, roomId);
+    }
+  }
+
+  finishRound(roomId) {
+    const room = this.state.gameRooms[roomId];
+    console.log(room.rounds.length);
+    if (room.rounds.length > 1) {
+      const currRound = room.rounds[room.rounds.length - 2];
+      const now = new Date();
+      console.log(now);
+      if (!currRound.finished) {
+        currRound.finished = true;
+        console.log("round finished");
+        console.log(room.rounds.length < room.roundsTotal, room.rounds.length, room.roundsTotal);
+        this.getRoundScore(roomId);
+      }
+    }
+  }
+
+  getRoundScore(roomId) {
+    let all = false;
+    const room = this.state.gameRooms[roomId];
+    const currRound = room.rounds.length - 2;
+    const players = room.players;
+    const winning = [0, {}, 0];
+    let counter = 0;
+    for (const player of players) {
+      console.log(player, currRound, player.scores[currRound]);
+      if (player.words.length == currRound + 1) counter++;
+      if (winning[0] <= player.scores[currRound]) {
+        winning[0] = player.scores[currRound];
+        winning[1] = player.words[currRound];
+        winning[2] = player.id;
+      }
+    }
+    if (counter == players.length) all = true;
+    room.rounds[currRound].winner = winning[2];
+    room.rounds[currRound].word = winning[1];
+    if (all) {
+      if (room.rounds.length < room.roundsTotal) setTimeout(this.state.addRound.bind(this.state), 5000, roomId);
+    } else setTimeout(this.getRoundScore.bind(this), 1000, roomId);
+  }
+
+  getUserByID = async (id) => this._playersList.find((p) => p.id == id);
 
   checkWord = async (letters, user) => {
-    const player = await this.getUserByID(user._id)
+    const player = await this.getUserByID(user._id);
     const word = this.assembleWord(letters);
     let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
     response = await response.json();
@@ -82,13 +186,13 @@ export class Game {
     }
     user.score += response.score;
     player.score += response.score;
-    this.state.gameRooms[player.room].players.forEach(p => {
+    this.state.gameRooms[player.room].players.forEach((p) => {
       if (p.id == player.id) {
-        p.scores.push(response.score)
-        p.score += response.score
-        p.words.push(response)
+        p.scores.push(response.score);
+        p.score += response.score;
+        p.words.push(response);
       }
-    })
+    });
 
     this.playersList.forEach((player) => {
       if (player.name == user.username) player.score += response.score;
@@ -144,7 +248,7 @@ export class Game {
   getPlayer = async (username) => {
     console.log(username);
     // const player = await PlayerModel.findOne({ username: username });
-    const player = this._playersList.find(p => p.name == username);
+    const player = this._playersList.find((p) => p.name == username);
     return player;
   };
 
@@ -155,7 +259,10 @@ export class Game {
   }
   markOffline(username) {
     this.playersList.forEach((player) => {
-      if (player.name == username) player.active = false;
+      if (player.name == username) {
+        player.active = false;
+        this.state.removePlayer(player);
+      }
     });
   }
 

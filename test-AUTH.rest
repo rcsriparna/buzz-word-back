@@ -6,6 +6,10 @@ content-type: application/json
     "username": "username",
     "password": "password"
 }
+
+### LOGGED
+GET http://localhost:3000/logged
+
 ### CREATE NEW USER WITH AUTO LOGIN
 POST http://localhost:3000/signup
 content-type: application/json
