@@ -70,7 +70,7 @@ export const state = {
         letters: "",
         startingIn: null,
         // endingAt: null,
-        roundDuration: room.roundDuration,
+        roundDuration: roundDuration,
         winner: 0,
         word: null,
         finished: false,

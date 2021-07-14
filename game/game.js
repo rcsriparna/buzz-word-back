@@ -113,16 +113,17 @@ export class Game {
   startGame(roomId) {
     const room = this.state.gameRooms[roomId];
     room.roomState = 1;
-    room.rounds[0].startRound();
-    this.state.addRound(roomId);
+    this.startRound(roomId);
   }
 
   startRound(roomId) {
     const room = this.state.gameRooms[roomId];
     const currRound = room.rounds[room.rounds.length - 1];
     const prevRound = room.rounds[room.rounds.length - 2];
-    if (currRound.startingIn == null && (prevRound.finished || room.rounds.length == 2)) {
+    // console.log("its here",currRound)
+    if (currRound.startingIn == null && (prevRound?.finished || room.rounds.length == 1)) {
       currRound.startRound();
+      // console.log("its here 2")
       setTimeout(this.finishRound.bind(this), (room.roundDuration + 2) * 1000, roomId);
     }
   }
@@ -130,14 +131,14 @@ export class Game {
   finishRound(roomId) {
     const room = this.state.gameRooms[roomId];
     console.log(room.rounds.length);
-    if (room.rounds.length > 1) {
-      const currRound = room.rounds[room.rounds.length - 2];
+    if (room.rounds.length > 0) {
+      const currRound = room.rounds[room.rounds.length - 1];
       const now = new Date();
       console.log(now);
       if (!currRound.finished) {
         currRound.finished = true;
-        console.log("round finished");
-        console.log(room.rounds.length < room.roundsTotal, room.rounds.length, room.roundsTotal);
+        // console.log("round finished");
+        // console.log(room.rounds.length < room.roundsTotal, room.rounds.length, room.roundsTotal);
         this.getRoundScore(roomId);
       }
     }
@@ -146,9 +147,9 @@ export class Game {
   getRoundScore(roomId) {
     let all = false;
     const room = this.state.gameRooms[roomId];
-    const currRound = room.rounds.length - 2;
+    const currRound = room.rounds.length - 1;
     const players = room.players;
-    const winning = [0, {}, 0];
+    const winning = [0, null, 0];
     let counter = 0;
     for (const player of players) {
       console.log(player, currRound, player.scores[currRound]);
