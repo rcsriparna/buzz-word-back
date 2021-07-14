@@ -23,7 +23,6 @@ export class Game {
     this.initRooms();
     this.startMonitoring();
     this.monitorId = null;
-    this.endingTimes = [];
   }
 
   initRooms() {
@@ -124,7 +123,7 @@ export class Game {
     if (currRound.startingIn == null && (prevRound?.finished || room.rounds.length == 1)) {
       currRound.startRound();
       // console.log("its here 2")
-      setTimeout(this.finishRound.bind(this), (room.roundDuration + 2) * 1000, roomId);
+      setTimeout(this.finishRound.bind(this), (room.roundDuration + 2 + 6) * 1000, roomId);
     }
   }
 
@@ -145,34 +144,27 @@ export class Game {
   }
 
   getRoundScore(roomId) {
-    let all = false;
     const room = this.state.gameRooms[roomId];
     const currRound = room.rounds.length - 1;
     const players = room.players;
     const winning = [0, null, 0];
-    let counter = 0;
     for (const player of players) {
-      console.log(player, currRound, player.scores[currRound]);
-      if (player.words.length == currRound + 1) counter++;
-      if (winning[0] <= player.scores[currRound]) {
+      if (winning[0] <= player?.scores[currRound]) {
         winning[0] = player.scores[currRound];
         winning[1] = player.words[currRound];
         winning[2] = player.id;
       }
     }
-    if (counter == players.length) all = true;
     room.rounds[currRound].winner = winning[2];
     room.rounds[currRound].word = winning[1];
-    if (all) {
-      if (room.rounds.length < room.roundsTotal) setTimeout(this.state.addRound.bind(this.state), 5000, roomId);
-    } else setTimeout(this.getRoundScore.bind(this), 1000, roomId);
+    if (room.rounds.length < room.roundsTotal) setTimeout(this.state.addRound.bind(this.state), 5000, roomId);
   }
-
   getUserByID = async (id) => this._playersList.find((p) => p.id == id);
 
   checkWord = async (letters, user) => {
     const player = await this.getUserByID(user._id);
     const word = this.assembleWord(letters);
+    const now = new Date();
     let response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${word}`);
     response = await response.json();
     if (response.title) {
@@ -187,11 +179,14 @@ export class Game {
     }
     user.score += response.score;
     player.score += response.score;
-    this.state.gameRooms[player.room].players.forEach((p) => {
+    const room = this.state.gameRooms[player.room];
+    room.players.forEach((p) => {
       if (p.id == player.id) {
         p.scores.push(response.score);
         p.score += response.score;
         p.words.push(response);
+        p.recievedAt = now;
+        p.afterTimeout = room.rounds[room.rounds.length - 1].finished;
       }
     });
 
