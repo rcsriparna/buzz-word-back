@@ -222,8 +222,9 @@ export const Game = {
   },
 
   async addPlayer(roomId, player) {
-    await this.state.addPlayer(roomId, player);
+    const response = await this.state.addPlayer(roomId, player);
     this.processState();
+    return response
   },
 
   async getUserByID(id) {

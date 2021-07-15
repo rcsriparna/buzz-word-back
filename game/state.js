@@ -87,9 +87,10 @@ export const State = {
 
     if (player?.room != null) await this.removePlayer(player);
 
-    if (room.roomState == 0 && room.hasSpace && (isNaN(player.room) || player.room == null)) {
+    if (room.roomState == 0 && room.hasSpace) {
       room.addPlayer({ id: player.id, name: player.name, score: 0, room: roomId, words: [], scores: [] });
       player.room = roomId;
+
       return player;
     } else console.log("dupe or no space or already in another room");
 

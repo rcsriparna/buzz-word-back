@@ -36,9 +36,10 @@ const joinRoom = async (req, res, next) => {
   if (req.user) {
     const player = await Game.getUserByID(req.user._id)
     res.locals.data = await Game.addPlayer(req.body.roomId, player);
+
     if (res.locals.data) res.status(config.http.CREATED);
     else {
-      res.status(config.http.OK);
+      res.status(config.http.BAD_REQUEST);
       res.locals.data = {
         message: `User ${player.name} already in the room.`,
       };
