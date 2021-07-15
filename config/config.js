@@ -5,6 +5,7 @@ dotenv({ path: path.resolve(__dirname, "../.env") });
 const DEBUG = true;
 const FRONT_END_FOLDER = process.env.FRONT_END_FOLDER || "BuzzWords-Front-End";
 const FRONT_END_STATIC = process.env.FRONT_END_STATIC || "assets";
+const GRID_SIZE = process.env.GRID_SIZE || 127;
 
 const FRONT_END = { static: FRONT_END_STATIC, root: FRONT_END_FOLDER };
 
@@ -55,4 +56,5 @@ export const config = {
   mongo: MONGO,
   http: HTTP_RES_CODES,
   front: FRONT_END,
+  gridSize: GRID_SIZE,
 };

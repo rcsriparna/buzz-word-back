@@ -1,7 +1,7 @@
 import passport from "passport";
 import { Router } from "express";
 import { config } from "../config/config";
-import { game } from "../app";
+import { Game } from "../game/game";
 import path from "path";
 import express from "express";
 var timesyncServer = require("timesync/server");
@@ -25,7 +25,7 @@ authRouter.use("/timesync", timesyncServer.requestHandler);
 
 //logout
 authRouter.get("/logout", (req, res) => {
-  game.markOffline(req.session.passport.user);
+  Game.markOffline(req.session.passport.user);
   req.logout();
   res.status(config.http.OK);
   res.send();
@@ -34,15 +34,20 @@ authRouter.get("/logout", (req, res) => {
 //logged
 authRouter.get("/logged", async (req, res) => {
   if (req.user) {
-    res.locals.data = await game.getPlayer(req.user.username);
-    game.markActive(res.locals.data.id);
+    res.locals.data = await Game.getPlayer(req.user.username);
+
+    Game.markActive(res.locals.data.id);
+
     res.status(config.http.OK);
     res.json(res.locals.data);
   } else {
     res.status(config.http.NOT_FOUND);
+    const msg = `User ${req.body.username} already exists. Either login or choose different name.`;
+
     res.locals.data = {
-      message: `User ${req.body.username} already exists. Either login or choose different name.`,
+      message: msg,
     };
+
     res.json(res.locals.data);
   }
 });
@@ -50,27 +55,30 @@ authRouter.get("/logged", async (req, res) => {
 //custom middleware handler for creating player from within game object [Class GameState]
 authRouter.post("/signup", async (req, res, next) => {
   if (req.user) req.logout();
-  res.locals.data = await game.addPlayer(req.body);
+
+  res.locals.data = await Game.createPlayer(req.body);
+
   if (res.locals.data) {
     req.logIn(res.locals.data, async (errLogIn) => {
       if (errLogIn) {
         return next(errLogIn);
       }
     });
-    res.locals.data = await game.getPlayer(res.locals.data.username);
+    res.locals.data = await Game.getPlayer(res.locals.data.username);
   } else {
     res.status(config.http.BAD_REQUEST);
     res.locals.data = {
       message: `User ${req.body.username} already exists. Either login or choose different name.`,
     };
   }
+
   res.json(res.locals.data);
 });
 
 //login POST with username and password in body
 authRouter.post("/login", passport.authenticate("local"), async (req, res) => {
-  res.locals.data = await game.getPlayer(req.body.username);
-  game.markActive(res.locals.data.id);
+  res.locals.data = await Game.getPlayer(req.body.username);
+  Game.markActive(res.locals.data.id);
   res.status(config.http.OK);
   res.json(res.locals.data);
 });

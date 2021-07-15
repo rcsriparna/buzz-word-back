@@ -28,7 +28,7 @@ const conClrs = {
 
 export const parseMsgAndColour = (msg) => {
   msg = msg.replace("INFO", `${conClrs.FgGreen}INFO${conClrs.Reset}`);
-  msg = msg.replace(/(APP|HTTP|CORS)/, `${conClrs.FgYellow}$1${conClrs.Reset}`);
+  msg = msg.replace(/(APP|HTTP|CORS|GAME)/, `${conClrs.FgYellow}$1${conClrs.Reset}`);
   msg = msg.replace("ERROR", `${conClrs.FgRed}ERROR${conClrs.Reset}`);
   msg = msg.replace("WARN", `${conClrs.FgYellow}WARN${conClrs.Reset}`);
   msg = msg.replace("DEBUG", `${conClrs.FgBlue}DEBUG${conClrs.Reset}`);

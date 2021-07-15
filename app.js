@@ -82,8 +82,9 @@ const serverUp = () => {
 let srv;
 connect();
 
-//instantiate Game
-export const game = new Game();
+//initialise Game
+Game.loadDB()
+Game.initRooms()
 
 
 

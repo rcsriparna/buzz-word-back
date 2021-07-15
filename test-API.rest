@@ -6,7 +6,7 @@ POST http://localhost:3000/api/room
 content-type: application/json
 
 {
-    "roomId":0
+    "roomId":2
 }
 
 ### GENERATE RANDOM LETTERS

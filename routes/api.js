@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { game } from "../app";
+import { Game } from "../game/game";
 import { config } from "../config/config";
 
 //router for "/api..." route
@@ -8,7 +8,7 @@ const apiRouter = Router();
 //custom middleware handling 'word checking' in external API accessed from within game object [Class GameState]
 const checkWord = async (req, res, next) => {
   if (req.user) {
-    res.locals.data = await game.checkWord(req.body.letters, req.user);
+    res.locals.data = await Game.checkWord(req.body.letters, req.user);
     res.status(config.http.CREATED);
   } else res.status(config.http.UNAUTHORIZED);
   next();
@@ -17,7 +17,7 @@ const checkWord = async (req, res, next) => {
 //custom middleware handler for generating random letters accessed from within game object [Class GameState]
 const generateLetters = async (req, res, next) => {
   if (req.user) {
-    res.locals.data = game.generateLetters(req.params.size);
+    res.locals.data = Game.generateLetters(req.params.size);
     res.status(config.http.CREATED);
   } else res.status(config.http.UNAUTHORIZED);
   next();
@@ -26,7 +26,7 @@ const generateLetters = async (req, res, next) => {
 //custom middleware handler for returning game status from within game object [Class GameState]
 const gameState = async (req, res, next) => {
   if (req.user) {
-    res.locals.data = game.state;
+    res.locals.data = Game.state;
   } else res.status(config.http.UNAUTHORIZED);
   next();
 };
@@ -34,8 +34,8 @@ const gameState = async (req, res, next) => {
 //custom middleware handler for returning game status from within game object [Class GameState]
 const joinRoom = async (req, res, next) => {
   if (req.user) {
-    const player = await game.getUserByID(req.user._id)
-    res.locals.data = await game.state.addPlayer(req.body.roomId, player);
+    const player = await Game.getUserByID(req.user._id)
+    res.locals.data = await Game.addPlayer(req.body.roomId, player);
     if (res.locals.data) res.status(config.http.CREATED);
     else {
       res.status(config.http.BAD_REQUEST);

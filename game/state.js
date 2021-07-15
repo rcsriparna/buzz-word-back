@@ -1,23 +1,23 @@
-import { game } from "../app";
+import { Game } from "./game";
 
-export const state = {
-  roomStates: { 0: "IN LOBBY", 1: "IN PROGRESS", 2: "FINISHED" },
+export const State = {
+  roomStates: { 0: "AWAITING PLAYERS", 1: "GAME IN PROGRESS", 2: "GAME FINISHED" },
   gameRooms: [],
-  serverTime() {
-    return Date.now();
-  },
-  createRoom(roomName, maxMembers, roundsTotal, roundDuration) {
+
+  createRoom(roomName, maxMembers, roundsTotal, roundDuration, gridSize) {
     this.gameRooms.push({
       //ROOM PROPERTIES / KEYS
       roomName,
-      roomId: this.gameRooms.length,
       maxMembers,
       roundsTotal,
       roundDuration,
+      gridSize,
       players: [],
-      roomState: 0,
       rounds: [],
-      gridSize: 127,
+      roomState: 0,
+      roomId: this.gameRooms.length,
+      winner: null,
+
       //ROOM METHODS
       isInRoom(player) {
         for (const p of this.players) {
@@ -25,43 +25,86 @@ export const state = {
         }
         return false;
       },
+
       addPlayer(player) {
         this.players.push(player);
       },
+
       removePlayer(player) {
         this.players = this.players.filter((p) => String(p.id) != String(player.id));
       },
+
+      getCurrentRoundObject() {
+        return this.rounds[this.currentRoundIndex];
+      },
+
+      reset() {
+        console.log("Reseting room");
+
+        this.players.forEach((player) => {
+          player.room = null;
+          player.score = 0;
+        });
+
+        this.players = [];
+        this.rounds = [];
+        Game.state.addRound(this.roomId, this.roundDuration);
+        this.winner = null;
+        this.roomState = 0;
+
+        Game.timeOuts[this.roomId].forEach((timeout) => clearTimeout(timeout));
+        Game.timeOuts[this.roomId] = [];
+      },
+
       //ROOM GETTERS
       get playersCount() {
         return this.players.length;
       },
+
       get currentRound() {
         return this.rounds.length;
       },
+
+      get currentRoundIndex() {
+        return this.rounds.length - 1;
+      },
+
       get hasSpace() {
         return this.playersCount < this.maxMembers;
       },
+
+      get isLastRound() {
+        return this.currentRound == this.roundsTotal;
+      },
     });
+
     //RETURN ROOM AFTER CREATING TO SUPPORT METHODS CHAINING
     return this;
   },
+
   async addPlayer(roomId, player) {
-    // we have to sanitaze room joining by checking if we are logged in in any of remaining rooms and if so to be removed from other room automatically
     const room = this.gameRooms[roomId];
+
     if (player?.room != null) await this.removePlayer(player);
+
     if (room.roomState == 0 && room.hasSpace && (isNaN(player.room) || player.room == null)) {
       room.addPlayer({ id: player.id, name: player.name, score: 0, room: roomId, words: [], scores: [] });
       player.room = roomId;
       return player;
     } else console.log("dupe or no space or already in another room");
+
     return false;
   },
+
   async removePlayer(player) {
     player.room = null;
     for (const room of this.gameRooms) {
       room.removePlayer(player);
+
+      if (room.playersCount == 0) room.reset();
     }
   },
+
   addRound(roomId, roundDuration) {
     const room = this.gameRooms[roomId];
     const lastRound = room.rounds.length - 1;
@@ -69,19 +112,16 @@ export const state = {
       room.rounds.push({
         letters: "",
         startingIn: null,
-        // endingAt: null,
         roundDuration: roundDuration,
         winner: 0,
         word: null,
         finished: false,
         startRound() {
-          // const start = new Date();
-          // start.setSeconds(start.getSeconds() + 12);
+          const start = new Date();
+          start.setSeconds(start.getSeconds() + 6);
+          this.startedAt = start;
           this.startingIn = 6;
-          // const end = new Date(start);
-          // end.setSeconds(end.getSeconds() + this.roundDuration);
-          // this.endingAt = end;
-          this.letters = game.generateLetters(game.state.gameRooms[roomId].gridSize);
+          this.letters = Game.generateLetters(Game.state.gameRooms[roomId].gridSize);
         },
       });
     }
