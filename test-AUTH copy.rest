@@ -1,0 +1,32 @@
+### LOGIN
+POST https://buzz-words-back.herokuapp.com/login
+content-type: application/json
+
+{
+    "username": "username",
+    "password": "password"
+}
+
+### LOGGED
+GET https://buzz-words-back.herokuapp.com/logged
+
+### CREATE NEW USER WITH AUTO LOGIN
+POST https://buzz-words-back.herokuapp.com/signup
+content-type: application/json
+
+{
+    "username":"username", 
+    "password":"password"
+}
+
+### BAD LOGIN TEST
+POST https://buzz-words-back.herokuapp.com/login
+content-type: application/json
+
+{
+    "username": "invalid",
+    "password": "login"
+}
+
+### LOGOUT
+GET https://buzz-words-back.herokuapp.com/logout

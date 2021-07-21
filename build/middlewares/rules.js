@@ -12,7 +12,7 @@ var _logging = require("../logger/logging");
 var NAMESPACE = "CORS"; // API RULES | OPTIONS | CORS etc...
 
 var rulesMiddleware = function rulesMiddleware(req, res, next) {
-  if (req.url != "/api/state" && req.url != "/timesync") {
+  if (req.url == "/api/state" && req.url != "/timesync") {
     res.header("Access-Control-Allow-Origin", _config.config.debug ? "*" : _config.config.server.hostname);
     res.header("Access-Control-Allow-Headers", "*");
     res.header("Access-Control-Allow-Origin", "*");
