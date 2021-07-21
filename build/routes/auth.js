@@ -38,8 +38,8 @@ authRouter.get(["/", "/*.html"], function (req, res) {
   });else if (req.path.includes("html")) res.sendFile(req.path, {
     root: _path.default.join(__dirname, "../../".concat(_config.config.front.root, "/"))
   });
-});
-authRouter.use("/timesync", timesyncServer.requestHandler); //logout
+}); // authRouter.use("/timesync", timesyncServer.requestHandler);
+//logout
 
 authRouter.get("/logout", function (req, res) {
   _game.Game.markOffline(req.session.passport.user);
