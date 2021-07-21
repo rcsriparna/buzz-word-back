@@ -10,7 +10,7 @@ var _logging = require("../logger/logging");
 var NAMESPACE = "HTTP"; //REQUEST LOGGING SESSION/REQUEST
 
 var requestMiddleware = function requestMiddleware(req, res, next) {
-  if (req.url != "/api/state" && req.url != "/timesync") {
+  if (req.url != "/api/statea") {
     _logging.logger.info(NAMESPACE, "METHOD - [".concat(req.method, "]"));
 
     _logging.logger.info(NAMESPACE, "URL - [".concat(req.url, "]"));
