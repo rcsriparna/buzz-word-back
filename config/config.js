@@ -20,9 +20,14 @@ const MONGO_OPTIONS = {
   useCreateIndex: true,
 };
 
-const MONGO_USERNAME = "";
-const MONGO_PASSWORD = "";
-const MONGO_HOST = "localhost";
+// const MONGO_USERNAME = "";
+// const MONGO_PASSWORD = "";
+// const MONGO_HOST = "localhost";
+// const MONGO_DB = "buzz-words";
+// const MONGO_SECRET = "J<ctr5J%S8,5jf+%RSFgwBfK=j=PvonCcV~KxoQO9x/Xkrxg=6z2MowEl3ml:W4";
+const MONGO_USERNAME = "adamr_space_admin";
+const MONGO_PASSWORD = "ytrZ7TqjjzAEY5t";
+const MONGO_HOST = "cluster0.voszz.mongodb.net";
 const MONGO_DB = "buzz-words";
 const MONGO_SECRET = "J<ctr5J%S8,5jf+%RSFgwBfK=j=PvonCcV~KxoQO9x/Xkrxg=6z2MowEl3ml:W4";
 
@@ -33,7 +38,8 @@ const MONGO = {
   options: MONGO_OPTIONS,
   db: MONGO_DB,
   secret: MONGO_SECRET,
-  url: `mongodb://${MONGO_HOST}/${MONGO_DB}`,
+  // url: `mongodb://${MONGO_HOST}/${MONGO_DB}`,
+  url: `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DB}`,
 };
 
 const SERVER = {

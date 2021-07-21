@@ -27,8 +27,8 @@ export const Game = {
   initRooms() {
     if (debug) logger.info(NAMESPACE, "Initialising rooms");
     this.state.createRoom("GOLDEN", 4, 10, 30, config.gridSize).addRound(0, 30);
-    this.state.createRoom("SILVER", 4, 10, 45, config.gridSize).addRound(1, 30);
-    this.state.createRoom("BRONZE", 4, 10, 60, config.gridSize).addRound(2, 30);
+    this.state.createRoom("SILVER", 4, 10, 45, config.gridSize).addRound(1, 45);
+    this.state.createRoom("BRONZE", 4, 10, 60, config.gridSize).addRound(2, 60);
     this.state.createRoom("SINGLE", 1, 3, 30, config.gridSize).addRound(3, 30);
   },
 
@@ -163,6 +163,7 @@ export const Game = {
   finishGame(roomId) {
     const room = this.getRoom(roomId);
     room.roomState = 2;
+    room.finishedAt = new Date();
 
     if (debug) logger.info(NAMESPACE, `Finishing game in room ${roomId} ${room.roomName}`);
 
@@ -224,7 +225,7 @@ export const Game = {
   async addPlayer(roomId, player) {
     const response = await this.state.addPlayer(roomId, player);
     this.processState();
-    return response
+    return response;
   },
 
   async getUserByID(id) {
