@@ -173,5 +173,5 @@ var outputResponse = function outputResponse(req, res, next) {
 
 apiRouter.post("/dict", checkWord, outputResponse);
 apiRouter.get("/rndletters/:size", generateLetters, outputResponse);
-apiRouter.post("/state", gameState, outputResponse);
+apiRouter.get("/state", gameState, outputResponse);
 apiRouter.post("/room", joinRoom, outputResponse);
