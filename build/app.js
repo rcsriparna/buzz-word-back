@@ -26,6 +26,8 @@ var _rules = require("./middlewares/rules");
 
 var _errors = require("./middlewares/errors");
 
+var _cors = _interopRequireDefault(require("cors"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -57,7 +59,7 @@ app.use(exp_sessions); //PASSPORT
 app.use(_passport.default.initialize());
 app.use(_passport.default.session()); //CORS
 
-app.use(cors({
+app.use((0, _cors.default)({
   origin: "http://172.22.176.1:5500",
   // (Whatever your frontend url is)
   credentials: true // <= Accept credentials (cookies) sent by the client
