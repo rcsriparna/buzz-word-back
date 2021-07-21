@@ -23,7 +23,7 @@ var FRONT_END = {
   root: FRONT_END_FOLDER
 };
 var SERVER_PORT = process.env.PORT || 3000;
-var SERVER_HOSTNAME = "https://adamr-space"; // const SERVER_HOSTNAME = "http://172.22.176.1:5500";
+var SERVER_HOSTNAME = "https://adamr.space"; // const SERVER_HOSTNAME = "http://172.22.176.1:5500";
 
 var SERVER_API_BASE = "/api";
 var MONGO_OPTIONS = {
