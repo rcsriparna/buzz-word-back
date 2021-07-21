@@ -28,7 +28,6 @@ var rulesMiddleware = function rulesMiddleware(req, res, next) {
     if (req.method == "OPTIONS") {
       res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET, OPTIONS");
       res.header("Access-Control-Allow-Headers", "Content-Type");
-      res.header("Access-Control-Allow-Origin", "*");
 
       _logging.logger.info(NAMESPACE, "[RES-HEADERS] Access-Control-Allow-Methods: ".concat(res.get("Access-Control-Allow-Methods")));
 
