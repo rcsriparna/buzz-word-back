@@ -95,9 +95,8 @@ var gameState = /*#__PURE__*/function () {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            if (req.user) {
-              res.locals.data = _game.Game.state;
-            } else res.status(_config.config.http.UNAUTHORIZED);
+            // if (req.user) {
+            res.locals.data = _game.Game.state; // } else res.status(config.http.UNAUTHORIZED);
 
             next();
 
