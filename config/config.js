@@ -9,8 +9,8 @@ const GRID_SIZE = process.env.GRID_SIZE || 127;
 
 const FRONT_END = { static: FRONT_END_STATIC, root: FRONT_END_FOLDER };
 
-const SERVER_PORT = 3000;
-const SERVER_HOSTNAME = "http://localhost";
+const SERVER_PORT = process.env.PORT || 3000;
+const SERVER_HOSTNAME = "https://buzz-words-back.herokuapp.com";
 const SERVER_API_BASE = "/api";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
