@@ -15,7 +15,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   path: _path.default.resolve(__dirname, "../.env")
 });
 var DEBUG = true;
-var FRONT_END_FOLDER = process.env.FRONT_END_FOLDER || "BuzzWords-Front-End";
+var FRONT_END_FOLDER = process.env.FRONT_END_FOLDER || "../BuzzWords-Front-End";
 var FRONT_END_STATIC = process.env.FRONT_END_STATIC || "assets";
 var GRID_SIZE = process.env.GRID_SIZE || 127;
 var FRONT_END = {
