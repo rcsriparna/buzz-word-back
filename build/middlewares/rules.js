@@ -14,8 +14,8 @@ var NAMESPACE = "CORS"; // API RULES | OPTIONS | CORS etc...
 var rulesMiddleware = function rulesMiddleware(req, res, next) {
   if (req.url != "/api/stateaa" && req.url != "/timesync") {
     res.header("Access-Control-Allow-Origin", _config.config.debug ? "http://172.22.176.1:5500" : _config.config.server.hostname);
-    res.header("Access-Control-Allow-Headers", "*");
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "*"); // res.header("Access-Control-Allow-Origin", "*");
+
     res.header("Access-Control-Allow-Credentials", "true");
 
     _logging.logger.info(NAMESPACE, "[REQ-HEADERS] User-Agent: ".concat(req.get("User-Agent")));
