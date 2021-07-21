@@ -47,7 +47,7 @@ var exp_sessions = (0, _expressSession.default)({
   cookie: {
     httpOnly: false,
     sameSite: "none",
-    secure: "auto"
+    secure: true
   },
   name: "buzz-words-session",
   resave: false,
