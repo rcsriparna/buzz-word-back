@@ -55,7 +55,14 @@ var exp_sessions = (0, _expressSession.default)({
 app.use(exp_sessions); //PASSPORT
 
 app.use(_passport.default.initialize());
-app.use(_passport.default.session()); //JSON body parsing
+app.use(_passport.default.session()); //CORS
+
+app.use(cors({
+  origin: "http://172.22.176.1:5500",
+  // (Whatever your frontend url is)
+  credentials: true // <= Accept credentials (cookies) sent by the client
+
+})); //JSON body parsing
 
 app.use(_express.default.json()); //REQUESTS / RESPONSES
 
