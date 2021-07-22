@@ -13,7 +13,7 @@ var NAMESPACE = "CORS"; // API RULES | OPTIONS | CORS etc...
 
 var rulesMiddleware = function rulesMiddleware(req, res, next) {
   if (req.url != "/api/stateaa" && req.url != "/timesync") {
-    res.header("Access-Control-Allow-Origin", "http://172.22.176.1:5500");
+    res.header("Access-Control-Allow-Origin", "https://adamr.space");
     res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Credentials, Content-Type");
     res.header("Access-Control-Allow-Credentials", "true");
 
