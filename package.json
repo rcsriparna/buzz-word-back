@@ -23,10 +23,6 @@
   },
   "homepage": "https://github.com/madalinacristea/Buzz-word-back-end#readme",
   "dependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.8",
     "babel-polyfill": "^6.26.0",
     "connect-mongo": "^4.4.1",
     "cross-env": "^7.0.3",
