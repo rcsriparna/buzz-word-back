@@ -5,11 +5,14 @@ const NAMESPACE = "CORS";
 
 // API RULES | OPTIONS | CORS etc...
 export const rulesMiddleware = (req, res, next) => {
-  if (req.url != "/api/state") {
-    res.header("Access-Control-Allow-Origin", config.server.hostname);
-    res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Credentials, Content-Type");
-    res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Origin", config.server.hostname);
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Credentials, Content-Type"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
 
+  if (req.url != "/api/state") {
     logger.info(NAMESPACE, `[REQ-HEADERS] User-Agent: ${req.get("User-Agent")}`);
     logger.info(NAMESPACE, `[REQ-HEADERS] Access-Control-Allow-Origin: ${res.get("Access-Control-Allow-Origin")}`);
     logger.info(NAMESPACE, `[REQ-HEADERS] Access-Control-Allow-Headers: ${res.get("Access-Control-Allow-Headers")}`);
