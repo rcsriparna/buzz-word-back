@@ -5,13 +5,12 @@
   "main": "app.js",
   "browserslist": "> .5% or last 2 versions",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run b && nodemon --exec node build/app.js",
+    "start": "node build/app.js",
     "git": "cross-env git checkout development && git add . && git commit -m",
     "git:merge": "cross-env git checkout main && git merge development && git push && git checkout development",
-    "clean": "rmdir build /s /q && mkdir build",
-    "transpile": "babel src -d build",
-    "b": "npm run clean && npm run transpile"
+    "clean": "rm build -rf /s /q && mkdir build",
+    "compile": "babel src -d build",
+    "build": "npm run clean && npm run compile"
   },
   "repository": {
     "type": "git",
