@@ -45,7 +45,8 @@ var app = (0, _express.default)(); //create instance of server
 var exp_sessions = (0, _expressSession.default)({
   secret: _config.config.mongo.secret,
   cookie: {
-    httpOnly: false
+    httpOnly: false,
+    sameSite: "none"
   },
   name: "buzz-words-session",
   resave: false,
