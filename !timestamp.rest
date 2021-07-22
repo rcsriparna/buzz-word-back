@@ -1,2 +1,0 @@
-### GAME STATE
-POST http://localhost:3000/timesync
