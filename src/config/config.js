@@ -1,7 +1,3 @@
-import { config as dotenv } from "dotenv";
-import path from "path";
-dotenv({ path: path.resolve(__dirname, "../.env") });
-
 const DEBUG = true;
 const GRID_SIZE = process.env.GRID_SIZE;
 
