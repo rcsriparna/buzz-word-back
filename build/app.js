@@ -45,10 +45,11 @@ var app = (0, _express.default)(); //create instance of server
 var exp_sessions = (0, _expressSession.default)({
   secret: _config.config.mongo.secret,
   cookie: {
-    httpOnly: false
+    httpOnly: false,
+    sameSite: "none",
+    secure: true
   },
   name: "buzz-words-session",
-  secure: true,
   resave: false,
   saveUninitialized: false,
   store: new _connectMongo.default({
@@ -56,6 +57,7 @@ var exp_sessions = (0, _expressSession.default)({
   })
 }); //SESSIONS
 
+app.enable('trust proxy');
 app.use(exp_sessions); //PASSPORT
 
 app.use(_passport.default.initialize());
