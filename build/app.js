@@ -46,10 +46,10 @@ var exp_sessions = (0, _expressSession.default)({
   secret: _config.config.mongo.secret,
   cookie: {
     httpOnly: false,
-    sameSite: "none",
-    secure: true
+    sameSite: "none"
   },
   name: "buzz-words-session",
+  secure: true,
   resave: false,
   saveUninitialized: false,
   store: new _connectMongo.default({
